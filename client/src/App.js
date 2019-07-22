@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
+import News from "./components/News"
 
 
 export default class App extends Component {
@@ -25,7 +26,9 @@ export default class App extends Component {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/news" component={News} />
           <Route path="*" component={NotFound} />
+
         </Switch>
       </Router>
 

@@ -1,6 +1,8 @@
+// const axios = require("axios");
+const router = require("express").Router();
 
 var name = "realDonaldTrump";
-var id_strings = [];
+// var id_strings = [1152579779297759232, 1152577021668728832];
 
 var T = new Twit({
   consumer_key: 'q0FiTHT26bJxIjldXF8g2EDVw',
@@ -13,16 +15,39 @@ var T = new Twit({
 
 
 
-// This function will query Twitter and return X Tweets from Y Candidate
-function twitterSearch() {
-  T.get('statuses/user_timeline', { screen_name: name, count: 2 }, function (err, data, response) {
+router.get("/tweets/:name", (req, res) => {
+  T.get('statuses/user_timeline', { screen_name: req.params.name, count: 2 }, function (err, data, response) {
+    
     console.log(data);
-    // console.log(data[0].id_str);
     for (let i = 0; i < numOfTweets; i++) {
       id_strings[i] = data[i].id_str
     }
     console.log(id_strings);
   })
-}
+});
+
+module.exports = router;
 
 
+
+
+
+
+
+
+
+
+
+// This function will query Twitter and return X Tweets from Y Candidate
+
+// function twitterSearch(name) {
+//   T.get('statuses/user_timeline', { screen_name: name, count: 2 }, function (err, data, response) {
+
+//     console.log(data);
+//     // console.log(data[0].id_str);
+//     for (let i = 0; i < numOfTweets; i++) {
+//       id_strings[i] = data[i].id_str
+//     }
+//     console.log(id_strings);
+//   })
+// }

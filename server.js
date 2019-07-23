@@ -1,24 +1,40 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+/* const cookieParser = require('cookie-parser'); */
+const logger = require('morgan');
+const mongoose = require('mongoose');
+
+
+const passport = require("./passport");
+const cookieSession = require('cookie-session');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+/* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
+
 const app = express();
+mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
+app.use(logger('dev'));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+app.use(express.urlencoded({ extended: false }));
+/* app.use(cookieParser()); */
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
-// Define API routes here
+app.use(passport.initialize());
+app.use(passport.session());
+app.use('/authentication', usersRouter);
+app.use('/', indexRouter);
+//app.use('/google', googleRouter);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
+
+
 
 app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+  console.log(`Server is listening on PORT ${PORT}`)
+})
+
+module.exports = app;

@@ -5,11 +5,11 @@
 // // Book routes
 // router.use("/books", bookRoutes);
 
-const router = require("express").Router();
-const candidateRoutes = require("./candidates");
+// const router = require("express").Router();
+// const candidateRoutes = require("./candidates");
 
-// candidate routes
-router.use("/candidates", candidateRoutes);
+// // candidate routes
+// router.use("/candidates", candidateRoutes);
 const axios = require("axios");
 const router = require("express").Router();
 

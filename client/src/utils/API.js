@@ -4,6 +4,8 @@ import axios from "axios";
 // It accepts a "query" or term to search the recipe api for
 export default {
   getNews: function() {
-    return axios.get("/api/news");
+   axios.get("/api/news").then((response)=>{
+     console.log("response", response)
+   }).catch(err => console.log(err))
   }
 };

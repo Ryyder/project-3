@@ -8,6 +8,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import News from "./components/News"
+import Accordion from "./components/Accordion"
 
 
 export default class App extends Component {
@@ -27,6 +28,7 @@ export default class App extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/news" component={News} />
+          <Route path="/accordion" component={Accordion} />
           <Route path="*" component={NotFound} />
 
         </Switch>

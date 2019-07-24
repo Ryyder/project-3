@@ -32,6 +32,7 @@ export default class Signup extends Component {
       this.setState({
         errorMessage: error.response.data.message
       });
+    });
   };
 
   handleChange = (event) => {

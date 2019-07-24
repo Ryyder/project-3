@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
+import Menu from "./components/Menu"
 
 
 export default class App extends Component {
@@ -29,6 +30,7 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/news" component={News} />
           <Route path="/accordion" component={Accordion} />
+          <Route path="/menu" component={Menu} />
           <Route path="*" component={NotFound} />
 
         </Switch>

@@ -3,6 +3,7 @@ import {Redirect} from "react-router-dom";
 import axios from "axios";
 
 
+
 export default class Home extends Component {
   state = {
     email: "",
@@ -42,12 +43,16 @@ export default class Home extends Component {
 
 
 
+
+
   render() {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
-    if(isAuthenticated) {
+     if(isAuthenticated) {
       return <Redirect to = "/profile" />
     }
+
+    
 
 
     //JSX

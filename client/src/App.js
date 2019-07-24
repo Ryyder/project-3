@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
@@ -23,7 +23,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/profile" component={Profile} />
+          <ProtectedRoute path="/profile" component={Profile} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

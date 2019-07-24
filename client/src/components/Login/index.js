@@ -60,7 +60,7 @@ export default class Home extends Component {
       <div>
         <h2>Home Component</h2>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="email" onChange={this.handleChange} />
+          <input type="email" name="email" onChange={this.handleChange} />
           <input type="password" name="password" onChange={this.handleChange} />
 
           <button>Login</button>

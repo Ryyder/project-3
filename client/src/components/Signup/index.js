@@ -23,13 +23,14 @@ export default class Signup extends Component {
         password
       }
     })
-      .then((response) => {
-        this.props.history.push("/profile");
-      })
-      .catch((error) => {
-        this.setState({
-          errorMessage: error.response.data.message
-        });
+    .then((response) => {
+      const isAuthenticated = response.data.isAuthenticated;
+      window.localStorage.setItem("isAuthenticated", isAuthenticated);
+      this.props.history.push("/profile");
+    })
+    .catch((error) => {
+      this.setState({
+        errorMessage: error.response.data.message
       });
   };
 

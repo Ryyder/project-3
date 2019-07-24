@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
+import logo from '../../united-states.png';
 
 
 
@@ -22,16 +23,16 @@ export default class Home extends Component {
         password
       }
     })
-    .then((response) => {
-      const isAuthenticated = response.data.isAuthenticated;
-      window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
+      .then((response) => {
+        const isAuthenticated = response.data.isAuthenticated;
+        window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
+        this.props.history.push("/profile");
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.response.data.message
+        });
       });
-    });
   };
 
   handleChange = (event) => {
@@ -48,42 +49,43 @@ export default class Home extends Component {
   render() {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
-     if(isAuthenticated) {
-      return <Redirect to = "/profile" />
+    if (isAuthenticated) {
+      return <Redirect to="/profile" />
     }
 
-    
+
 
 
     //JSX
     return (
       <div>
-      <div className="container">
-        <div id="authLogo" className="row">
-          <div className="col s12">
-            <h2>RE:DEM</h2>
+        <div className="container">
+          <div id="authLogo" className="row">
+            <div className="col s12">
+              <img src={logo} height="200" />
+              <h2>RE:DEM</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s4"></div>
+            <div className="col s4">
+              <form onSubmit={this.handleSubmit}>
+                <label for="email">Email Address</label>
+
+                <input type="text" name="email" onChange={this.handleChange} />
+                <label for="password">Password</label>
+
+                <input type="password" name="password" onChange={this.handleChange} />
+
+                <button>Login</button>
+                <button onClick={() => { this.props.history.push("/signup") }}>Sign Up</button>
+              </form>
+            </div>
+            <div className="col s4"></div>
           </div>
         </div>
-        <div className="row">
-          <div className="col s4"></div>
-          <div className="col s4">
-            <form onSubmit={this.handleSubmit}>
-              <label for="email">Email Address</label>
-
-              <input type="text" name="email" onChange={this.handleChange} />
-              <label for="password">Password</label>
-
-              <input type="password" name="password" onChange={this.handleChange} />
-
-              <button>Login</button>
-              <button onClick={() => { this.props.history.push("/signup") }}>Sign Up</button>
-            </form>
-          </div>
-          <div className="col s4"></div>
-        </div>
+        <p>{this.state.errorMessage}</p>
       </div>
-      <p>{this.state.errorMessage}</p>
-    </div>
     );
   }
 }

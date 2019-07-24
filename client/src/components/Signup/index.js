@@ -4,6 +4,8 @@ import React, { Component } from "react";
 // import Container from '@material-ui/core/Container';
 import "./style.css"
 import axios from "axios";
+import logo from '../../united-states.png';
+
 
 export default class Signup extends Component {
   state = {
@@ -23,16 +25,16 @@ export default class Signup extends Component {
         password
       }
     })
-    .then((response) => {
-      const isAuthenticated = response.data.isAuthenticated;
-      window.localStorage.setItem("isAuthenticated", isAuthenticated);
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
+      .then((response) => {
+        const isAuthenticated = response.data.isAuthenticated;
+        window.localStorage.setItem("isAuthenticated", isAuthenticated);
+        this.props.history.push("/profile");
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.response.data.message
+        });
       });
-    });
   };
 
   handleChange = (event) => {
@@ -52,6 +54,7 @@ export default class Signup extends Component {
         <div className="container">
           <div id="authLogo" className="row">
             <div className="col s12">
+              <img src={logo} height="200" />
               <h2>RE:DEM</h2>
             </div>
           </div>

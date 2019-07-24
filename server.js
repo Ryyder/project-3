@@ -8,7 +8,7 @@ const passport = require("./passport");
 const cookieSession = require('cookie-session');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const API = require("./routes/api/news");
+const newsAPI = require("./routes/api/news");
 /* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +16,7 @@ const app = express();
 mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
 // Use newsAPI
-app.use("/api", API);
+app.use("/api", newsAPI);
 
 app.use(logger('dev'));
 app.use(express.json());

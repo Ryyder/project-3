@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+// import CssBaseline from '@material-ui/core/CssBaseline';
+// import Typography from '@material-ui/core/Typography';
+// import Container from '@material-ui/core/Container';
+import "./style.css"
 import axios from "axios";
 
 export default class Signup extends Component {
@@ -19,14 +23,14 @@ export default class Signup extends Component {
         password
       }
     })
-    .then((response) => {
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
+      .then((response) => {
+        this.props.history.push("/profile");
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.response.data.message
+        });
       });
-    });
   };
 
   handleChange = (event) => {
@@ -43,14 +47,32 @@ export default class Signup extends Component {
     //JSX
     return (
       <div>
-        <h2>Signup Component</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="email" onChange={this.handleChange} />
-          <input type="password" name="password" onChange={this.handleChange} />
+        <div className="container">
+          <div id="authLogo" className="row">
+            <div className="col s12">
+              <h2>RE:DEM</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s4"></div>
+            <div className="col s4">
+              <form onSubmit={this.handleSubmit}>
+                <label for="email">Email Address</label>
 
-          <button>Signup</button>
-          <button onClick={() => {this.props.history.push("/")}}>Cancel</button>
-        </form>
+                <input type="text" name="email" onChange={this.handleChange} />
+                <label for="password">Password</label>
+
+                <input type="password" name="password" onChange={this.handleChange} />
+
+                <button>Signup</button>
+                <button onClick={() => { this.props.history.push("/") }}>Cancel</button>
+              </form>
+            </div>
+            <div className="col s4"></div>
+          </div>
+        </div>
+
+
         <p>{this.state.errorMessage}</p>
       </div>
     );

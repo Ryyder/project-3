@@ -58,16 +58,32 @@ export default class Home extends Component {
     //JSX
     return (
       <div>
-        <h2>Home Component</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="email" onChange={this.handleChange} />
-          <input type="password" name="password" onChange={this.handleChange} />
+      <div className="container">
+        <div id="authLogo" className="row">
+          <div className="col s12">
+            <h2>RE:DEM</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s4"></div>
+          <div className="col s4">
+            <form onSubmit={this.handleSubmit}>
+              <label for="email">Email Address</label>
 
-          <button>Login</button>
-          <button onClick={() => {this.props.history.push("/signup")}}>Sign Up</button>
-        </form>
-        <p>{this.state.errorMessage}</p>
+              <input type="text" name="email" onChange={this.handleChange} />
+              <label for="password">Password</label>
+
+              <input type="password" name="password" onChange={this.handleChange} />
+
+              <button>Login</button>
+              <button onClick={() => { this.props.history.push("/signup") }}>Sign Up</button>
+            </form>
+          </div>
+          <div className="col s4"></div>
+        </div>
       </div>
+      <p>{this.state.errorMessage}</p>
+    </div>
     );
   }
 }

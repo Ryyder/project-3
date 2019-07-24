@@ -69,7 +69,7 @@ const candidateSeed = [
 			]
 		
 	},
-		{
+	{
 		name: "Sen. Kamala Harris",
 		age: 54,
 		party: "Democrats" ,

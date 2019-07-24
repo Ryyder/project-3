@@ -44,7 +44,24 @@
 
 <script>
 
+// var tweets = document.getElementsByClassName("tweet");
+//     for (var tweet in tweets) {
+//       if (tweets.hasOwnProperty(tweet)) {
+//         var id = tweet.getAttribute('id');
+//         twtter.widgets.createTweet(
+//           id, tweet,
+//           {
+//             conversation: 'none',    // or all
+//             cards: 'hidden',  // or visible 
+//             linkColor: '#cc0000', // default is blue
+//             theme: 'light'    // or dark
+//           }
+//         )
+//       }
+//     }
+
   window.onload = (function () {
+
 
     var tweet = document.getElementById("tweet");
     var id = tweet.getAttribute("tweetID");
@@ -53,7 +70,7 @@
       id, tweet,
       {
         conversation: 'none',    // or all
-        cards: 'hidden',  // or visible 
+        cards: 'visible',  // or visible 
         linkColor: '#cc0000', // default is blue
         theme: 'light'    // or dark
       })

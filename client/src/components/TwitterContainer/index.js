@@ -1,9 +1,7 @@
 import React from "react";
 import "./style.css";
 import TweetCard from "../TweetCard";
-import Axios from "axios";
-// import tweets from "../../../../routes/api/tweet.js";
-// import tweets from "../Tweets.json";
+// import Axios from "axios";
 
 // Create a Tweets.json file that stores a list of tweet ids returned from the twitter api call
 // In TweetCard component put the code for creating each tweet using the given code from the internet
@@ -19,19 +17,21 @@ class TwitterContainer extends React.Component {
   //   Axios.get("/tweets")
   // }
 
+  renderTweets = () => (
+    this.state.tweets.map(tweet => (
+      <TweetCard
+      key={tweet}
+      id={tweet}
+      />
+    ))
+  );
+
   render() {
+    console.log(this.state.tweets)
     return (
       <div className="container">
         <div className="twitterContainer">
-          <p>{this.state.tweets}</p>
-          <React.Fragemnt>
-            {this.state.tweets.map(tweet => (
-              <TweetCard
-                key={tweet.id}
-                id={tweet.id}
-              />
-            ))}
-          </React.Fragemnt>
+            {this.renderTweets()}
         </div>
       </div>
     );

@@ -1,10 +1,11 @@
 // const axios = require("axios");
+var Twitter = require('twitter');
 const router = require("express").Router();
 
 var name = "realDonaldTrump";
 // var id_strings = [1152579779297759232, 1152577021668728832];
 
-var T = new Twit({
+var T = new Twitter({
   consumer_key: 'q0FiTHT26bJxIjldXF8g2EDVw',
   consumer_secret: 'WEBBW8erGtCBKA1gCDp8YCNpqTBLSkx3zwek0M0gdSE6gs3dYQ',
   access_token: '1136480334088814592-KHSFeLe6UTjEuavcNvrtZHTCZBEMfM',

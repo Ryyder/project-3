@@ -5,127 +5,95 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/reactcandidates"
 );
 
-const bookSeed = [
+const candidateSeed = [
   {
-    title: "The Dead Zone",
-    author: "Stephen King",
-    synopsis:
-      "A number-one national best seller about a man who wakes up from a five-year coma able to see people's futures and the terrible fate awaiting mankind in The Dead Zone - a \"compulsive page-turner\" (The Atlanta Journal-Constitution). Johnny Smith awakens from a five-year coma after his car accident and discovers that he can see people's futures and pasts when he touches them. Many consider his talent a gift; Johnny feels cursed. His fiancée married another man during his coma, and people clamor for him to solve their problems. When Johnny has a disturbing vision after he shakes the hand of an ambitious and amoral politician, he must decide if he should take drastic action to change the future. The Dead Zone is a \"faultlessly paced...continuously engrossing\" (Los Angeles Times) novel of second sight.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Lord of the Flies",
-    author: "William Golding",
-    synopsis:
-      "The tale of a party of shipwrecked schoolboys, marooned on a coral island, who at first enjoy the freedom of the situation but soon divide into fearsome gangs which turn the paradise island into a nightmare of panic and death.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    synopsis:
-      "The Catcher in the Rye is a 1951 novel by J. D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation. It has been translated into almost all of the world's major languages. Around 1 million copies are sold each year with total sales of more than 65 million books. The novel's protagonist Holden Caulfield has become an icon for teenage rebellion. The novel also deals with complex issues of innocence, identity, belonging, loss, and connection.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "The Punch Escrow",
-    author: "Tal M. Klein",
-    synopsis:
-      "It's the year 2147. Advancements in nanotechnology have enabled us to control aging. We’ve genetically engineered mosquitoes to feast on carbon fumes instead of blood, ending air pollution. And teleportation has become the ideal mode of transportation, offered exclusively by International Transport―the world’s most powerful corporation, in a world controlled by corporations. Joel Byram spends his days training artificial-intelligence engines to act more human and trying to salvage his deteriorating marriage. He’s pretty much an everyday twenty-second century guy with everyday problems―until he’s accidentally duplicated while teleporting. Now Joel must outsmart the shadowy organization that controls teleportation, outrun the religious sect out to destroy it, and find a way to get back to the woman he loves in a world that now has two of him.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
-    synopsis:
-      "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Coraline",
-    author: "Neil Gaiman",
-    synopsis:
-      "When Coraline steps through a door to find another house strangely similar to her own (only better), things seem marvelous. But there's another mother there, and another father, and they want her to stay and be their little girl. They want to change her and never let her go. Coraline will have to fight with all her wit and courage if she is to save herself and return to her ordinary life.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Code: The Hidden Language of Computer Hardware and Software",
-    author: "Charles Petzold",
-    synopsis:
-      "What do flashlights, the British invasion, black cats, and seesaws have to do with computers? In CODE, they show us the ingenious ways we manipulate language and invent new means of communicating with each other. And through CODE, we see how this ingenuity and our very human compulsion to communicate have driven the technological innovations of the past two centuries. Using everyday objects and familiar language systems such as Braille and Morse code, author Charles Petzold weaves an illuminating narrative for anyone who’s ever wondered about the secret inner life of computers and other smart machines. It’s a cleverly illustrated and eminently comprehensible story—and along the way, you’ll discover you’ve gained a real context for understanding today’s world of PCs, digital media, and the Internet. No matter what your level of technical savvy, CODE will charm you—and perhaps even awaken the technophile within.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "The Everything Store: Jeff Bezos and the Age of Amazon",
-    author: "Brad Stone",
-    synopsis:
-      "The definitive story of Amazon.com, one of the most successful companies in the world, and of its driven, brilliant founder, Jeff Bezos. Amazon.com started off delivering books through the mail. But its visionary founder, Jeff Bezos, wasn't content with being a bookseller. He wanted Amazon to become the everything store, offering limitless selection and seductive convenience at disruptively low prices. To do so, he developed a corporate culture of relentless ambition and secrecy that's never been cracked. Until now. Brad Stone enjoyed unprecedented access to current and former Amazon employees and Bezos family members, giving listeners the first in-depth, fly-on-the-wall account of life at Amazon. Compared to tech's other elite innovators - Jobs, Gates, Zuckerberg - Bezos is a private man. But he stands out for his restless pursuit of new markets, leading Amazon into risky new ventures like the Kindle and cloud computing, and transforming retail in the same way Henry Ford revolutionized manufacturing. The Everything Store will be the revealing, definitive biography of the company that placed one of the first and largest bets on the Internet and forever changed the way we shop and read.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Total Recall: My Unbelievably True Life Story",
-    author: "Arnold Schwarzenegger",
-    synopsis:
-      "In his signature larger-than-life style, Arnold Schwarzenegger’s Total Recall is a revealing self-portrait of his illustrious, controversial, and truly unique life. The greatest immigrant success story of our time. His story is unique, and uniquely entertaining, and he tells it brilliantly in these pages. He was born in a year of famine, in a small Austrian town, the son of an austere police chief. He dreamed of moving to America to become a bodybuilding champion and a movie star. By the age of twenty-one, he was living in Los Angeles and had been crowned Mr. Universe. Within five years, he had learned English and become the greatest bodybuilder in the world. Within ten years, he had earned his college degree and was a millionaire from his business enterprises in real estate, landscaping, and bodybuilding. He was also the winner of a Golden Globe Award for his debut as a dramatic actor in Stay Hungry. Within twenty years, he was the world’s biggest movie star, the husband of Maria Shriver, and an emerging Republican leader who was part of the Kennedy family. Thirty-six years after coming to America, the man once known by fellow body­builders as the Austrian Oak was elected governor of California, the seventh largest economy in the world. He led the state through a budget crisis, natural disasters, and political turmoil, working across party lines for a better environment, election reforms, and bipartisan solutions. With Maria Shriver, he raised four fantastic children. In the wake of a scandal he brought upon himself, he tried to keep his family together. Until now, he has never told the full story of his life, in his own voice. Here is Arnold, with total recall.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future",
-    author: "Ashlee Vance",
-    synopsis:
-      "In the spirit of Steve Jobs and Moneyball, Elon Musk is both an illuminating and authorized look at the extraordinary life of one of Silicon Valley's most exciting, unpredictable, and ambitious entrepreneurs - a real-life Tony Stark - and a fascinating exploration of the renewal of American invention and its new makers. Elon Musk spotlights the technology and vision of Elon Musk, the renowned entrepreneur and innovator behind SpaceX, Tesla, and SolarCity, who sold one of his Internet companies, PayPal, for $1.5 billion. Ashlee Vance captures the full spectacle and arc of the genius' life and work, from his tumultuous upbringing in South Africa and flight to the United States to his dramatic technical innovations and entrepreneurial pursuits. Vance uses Musk's story to explore one of the pressing questions of our age: Can the nation of inventors and creators who led the modern world for a century still compete in an age of fierce global competition? He argues that Musk - one of the most unusual and striking figures in American business history - is a contemporary, visionary amalgam of legendary inventors and industrialists, including Thomas Edison, Henry Ford, Howard Hughes,and Steve Jobs. More than any other entrepreneur today, Musk has dedicated his energies and his own vast fortune to inventing a future that is as rich and far reaching as the visionaries of the golden age of science-fiction fantasy.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Steve Jobs",
-    author: "Walter Isaacson",
-    synopsis:
-      "Based on more than 40 interviews with Jobs conducted over two years - as well as interviews with more than a hundred family members, friends, adversaries, competitors, and colleagues - Walter Isaacson has written a riveting story of the roller-coaster life and searingly intense personality of a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing. At a time when America is seeking ways to sustain its innovative edge, and when societies around the world are trying to build digital-age economies, Jobs stands as the ultimate icon of inventiveness and applied imagination. He knew that the best way to create value in the 21st century was to connect creativity with technology. He built a company where leaps of the imagination were combined with remarkable feats of engineering. Although Jobs cooperated with this book, he asked for no control over what was written. He put nothing off-limits. He encouraged the people he knew to speak honestly. And Jobs speaks candidly, sometimes brutally so, about the people he worked with and competed against. His friends, foes,and colleagues provide an unvarnished view of the passions, perfectionism, obsessions, artistry, devilry, and compulsion for control that shaped his approach to business and the innovative products that resulted. Driven by demons, Jobs could drive those around him to fury and despair. But his personality and products were interrelated, just as Apple's hardware and software tended to be, as if part of an integrated system. His tale is instructive and cautionary, filled with lessons about innovation, character, leadership, and values.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Astrophysics for People in a Hurry",
-    author: "Neil deGrasse Tyson",
-    synopsis:
-      "What is the nature of space and time? How do we fit within the universe? How does the universe fit within us? There's no better guide through these mind-expanding questions than acclaimed astrophysicist and best-selling author Neil deGrasse Tyson. But today, few of us have time to contemplate the cosmos. So Tyson brings the universe down to Earth succinctly and clearly, with sparkling wit, in digestible chapters consumable anytime and anywhere in your busy day. While waiting for your morning coffee to brew, or while waiting for the bus, the train, or the plane to arrive, Astrophysics for People in a Hurry will reveal just what you need to be fluent and ready for the next cosmic headlines: from the big bang to black holes, from quarks to quantum mechanics, and from the search for planets to the search for life in the universe.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "1984",
-    author: "George Orwell",
-    synopsis:
-      "Winston Smith toes the Party line, rewriting history to satisfy the demands of the Ministry of Truth. With each lie he writes, Winston grows to hate the Party that seeks power for its own sake and persecutes those who dare to commit thoughtcrimes. But as he starts to think for himself, Winston can’t escape the fact that Big Brother is always watching... A startling and haunting vision of the world, 1984 is so powerful that it is completely convincing from start to finish. No one can deny the influence of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions—a legacy that seems only to grow with the passage of time.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Frankenstein",
-    author: "Mary Shelley",
-    synopsis:
-      "Few creatures of horror have seized readers' imaginations and held them for so long as the anguished monster of Mary Shelley's Frankenstein. The story of Victor Frankenstein's terrible creation and the havoc it caused has enthralled generations of readers and inspired countless writers of horror and suspense. Considering the novel's enduring success, it is remarkable that it began merely as a whim of Lord Byron's. \"We will each write a story,\" Byron announced to his next-door neighbors, Mary Wollstonecraft Godwin and her lover Percy Bysshe Shelley. The friends were summering on the shores of Lake Geneva in Switzerland in 1816, Shelley still unknown as a poet and Byron writing the third canto of Childe Harold. When continued rains kept them confined indoors, all agreed to Byron's proposal. The illustrious poets failed to complete their ghost stories, but Mary Shelley rose supremely to the challenge. With Frankenstein, she succeeded admirably in the task she set for herself: to create a story that, in her own words, \"would speak to the mysterious fears of our nature and awaken thrilling horror -- one to make the reader dread to look round, to curdle the blood, and quicken the beatings of the heart.\"",
-    date: new Date(Date.now())
-  },
-  {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    synopsis:
-      "The authentic edition from Fitzgerald's original publisher. This edition approved by the Holden-Crowther Literary Organisation. The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \"gin was the national drink and sex the national obsession,\" it is an exquisitely crafted tale of America in the 1920s. The Great Gatsby is one of the great classics of twentieth-century literature.",
-    date: new Date(Date.now())
-  },
-  {
-    title: "Born a Crime: Stories from a South African Childhood",
-    author: "Trevor Noah",
-    synopsis:
-      "Trevor Noah, one of the comedy world's fastest-rising stars and host of The Daily Show, tells his wild coming-of-age story during the twilight of apartheid in South Africa and the tumultuous days of freedom that followed. In this Audible Studios production, Noah provides something deeper than traditional memoirists: powerfully funny observations about how farcical political and social systems play out in our lives. \"Nelson Mandela once said, 'If you talk to a man in a language he understands, that goes to his head. If you talk to him in his language, that goes to his heart.' He was so right. When you make the effort to speak someone elses language, even if it's just basic phrases here and there, you are saying to them, 'I understand that you have a culture and identity that exists beyond me. I see you as a human being.'\" (Trevor Noah)\nAttuned to the power of language at a young age - as a means of acceptance and influence in a country divided, then subdivided, into groups at odds with one another - Noah's raw, personal journey becomes something extraordinary in audio: a true testament to the power of storytelling. With brutal honesty and piercing wit, he forgoes an ordinary reading and, instead, delivers something more intimate, sharing his story with the openness and candor of a close friend. His chameleon-like ability to mimic accents and dialects, to shift effortlessly between languages including English, Xhosa, and Zulu, and to embody characters throughout his childhood - his mother, his gran, his schoolmates, first crushes and infatuations - brings each memory to life in vivid detail. Hearing him directly, you're reminded of the gift inherent in telling one's story and having it heard; of connecting with another, and seeing them as a human being.\nThe stories Noah tells are by turns hilarious, bizarre, tender, dark, and poignant - subsisting on caterpillars during months of extreme poverty, making comically pitiful attempts at teenage romance in a color-obsessed world, thrown into jail as the hapless fall guy for a crime he didn't commit, thrown by his mother from a speeding car driven by murderous gangsters, and more.",
-    date: new Date(Date.now())
-  }
+		name: "President Donald J. Trump",
+		age: 73,
+		party: "Republican",
+		president_nominee: false,
+		cur_position: "President of United States",
+		yrs_served: 3,
+		summary:
+			[
+				{
+					bio:  "Trump said that \"I alone can fix\" the system,[29] and pledged that if elected, \"Americanism, not globalism, will be our credo.\"[28] He described himself as a \"law and order\" candidate and \"the voice\" of \"the forgotten men and women.\"[30] Trump's inaugural address on January 20, 2017 focused on his campaign theme of America in crisis and decline.[31] He pledged to end what he referred to as \"American carnage,\"[32][33] depicting the United States in a dystopian light—as a \"land of abandoned factories, economic angst, rising crime\"—while pledging \"a new era in American politics.\". Trump's political positions are viewed by some as populist. Among academics, political writers, and pundits, Trump and his politics have been classified in greater detail, but in varying ways. Politicians and pundits alike have referred to Trump's populism, anti-free trade, and anti-immigrant stances as \"Trumpism\"'",
+					healthcare: "'President Trump advocated repealing and replacing the Affordable Care Act (ACA or \"Obamacare\"). The Republican-controlled House passed the American Health Care Act (AHCA) in May 2017, handing it to the Senate, which decided to write its own version of the bill rather than voting on the AHCA.[204] The Senate bill, called the \"Better Care Reconciliation Act of 2017\" (BCRA), failed on a vote of 45-55 in the Senate during July 2017. Other variations also failed to gather the required support, facing unanimous Democratic Party opposition and some Republican opposition.[205] The Congressional Budget Office estimated that the bills would increase the number of uninsured by over 20 million persons, while reducing the budget deficit marginally.'",
+					climate: "'Trump rejects the scientific consensus on climate change,[159][160][161] repeatedly contending that global warming is a \"hoax.\" By March 2016, Trump had not released any plans to combat climate change or provided details regarding his approach to energy issues more broadly.[155] In May 2016, Trump asked U.S. Representative Kevin Cramer, Republican of North Dakota—described by Reuters as \"one of America's most ardent drilling advocates and climate change skeptics\"—to draft Trump's energy policy'",
+					immigration: "'Illegal immigration was a signature issue of Trump's presidential campaign, and his proposed reforms and controversial remarks about this issue have generated headlines.[5] Trump has also expressed support for a variety of \"limits on legal immigration and guest-worker visas,\"[5][249] including a \"pause\" on granting green cards, which Trump says will \"allow record immigration levels to subside to more moderate historical averages.\"'",
+					economy: "'The economic policy positions of United States President Donald Trump prior to his election had elements from across the political spectrum.[16] However, once in office his actions indicated a politically rightward shift towards more conservative economic policies.One July 2018 study indicated Trump's policies have had little impact on the U.S. economy in terms of GDP or employment.[13] Analysis conducted by Bloomberg News at the end of Trump's second year in office found that his economy ranked sixth among the last seven presidents, based on fourteen metrics of economic activity and financial performance.[14] Through his first 28 months in office, Trump repeatedly and falsely characterized the economy during his presidency as the best in American history.' ",
+					foreign_policy: "'[Needs revision] In a New York Times interview in July 2016, Presidential Nominee Trump \"repeatedly defined American global interests almost purely in economic terms,\" with the nation's \"roles as a peacekeeper, as a provider of a nuclear deterrent against adversaries like North Korea, as an advocate of human rights and as a guarantor of allies' borders\" being \"quickly reduced to questions of economic benefit to the United States.\"[1] A 68-page document likely written by and under the direction of the Trump administration's national security adviser, Lt. Gen. H.R. McMaster was released by the Trump administration in December 2017,[2] which has been referred to as outlining the administration's doctrine pertaining to foreign policy goals.'"
+				}
+			]
+		
+	},
+	{
+		name: "William F. Weld",
+		age:  73,
+		party: "Republican",
+		president_nominee: false,
+		cur_position: "Retired" ,
+		yrs_served:  17,
+		summary:
+			[
+				{
+					bio: "'Libertarian Party vice presidential nominee (2016); Governor of Massachusetts (1991-1997); Assistant attorney general for US Criminal Division (1986-1988); United States Attorney for Massachusetts (1981-1986). Among respondents who identified as at least slightly conservative, 13% said, \"I would absolutely support a qualified candidate who challenged President Trump in the Republican primary,\" 11% said, \"I would probably support a qualified Republican candidate who challenged President Trump in the primary,\" and 18% said, \"I support the president, however I am open to other qualified Republican primary challengers.\"'",
+					healthcare: "'Weld expanded Medicaid access while governor of Massachusetts.He also asked the federal government to boost funding to his state for Medicaid.'",
+					immigration: "'During the 2016 election when Weld was the Libertarian Party's vice presidential nominee, he compared Trump's proposals for mass deportations to the practices of Nazi Germany. Weld wants broader access for visas and working permits.'",
+					climate: "'Weld supports rejoining the Paris climate agreement, according to Boston.com.'",
+					"economy": "'Despite his more progressive social views, Weld is a traditional conservative when it comes to the economy, prioritizing cutting spending and cutting taxes.'",
+					foreign_policy: "'Weld opposes countries being allowed to develop nuclear without proper oversight, calling proliferation \"the number one threat to the security of the world.\" He supported the Obama administration's Iran nuclear deal.'"
+				}
+			]
+		
+	},
+	{
+		name: "Sen. Bernie Sanders",
+		age:  77,
+		party: "Democrats", 
+		president_nominee: false,
+		cur_position: "Senator of Vermont",
+		yrs_served: 38,
+		summary:
+			[
+				{
+					bio: "'In an address on his political philosophy given at Georgetown University in November 2015, Sanders identified his conception of \"democratic socialism\" with Franklin D. Roosevelt's proposal for a Second Bill of Rights,[6][7] saying that democratic socialism means creating \"an economy that works for all, not just the very wealthy,\" reforming the political system (which Sanders says is \"grossly unfair\" and \"in many respects, corrupt\"), recognizing health care and education as rights, protecting the environment, and creating a \"vibrant democracy based on the principle of one person, one vote.\"[8] He explained that democratic socialism is not tied to Marxism or the abolition of capitalism but rather describes a program of extensive social benefits, funded by broad-based taxes.'",
+					healthcare: "'Sanders is a staunch supporter of a universal health care system, and he has said, \"If you are serious about real healthcare reform, the only way to go is single-payer.\"[242] He advocates lowering the cost of drugs that are expensive because they remain under patent for years; some drugs costing thousands of dollars per year in the U.S. are available for hundreds, or less, in countries where they can be obtained as generics.'",
+					immigration: "'Sanders believes a path to citizenship should be created for new immigrants.[294] He voted for the comprehensive immigration reform bill in 2013,[295] saying, \"It does not make a lot of sense to me to bring hundreds of thousands of [foreign] workers into this country to work for minimum wage and compete with American kids.\" Sanders opposes guest worker programs[296] and is also skeptical about skilled immigrant (H-1B) visas, saying, \"Last year, the top 10 employers of H-1B guest workers were all offshore outsourcing companies. These firms are responsible for shipping large numbers of American information technology jobs to India and other countries.\"'",
+					climate: "'Sanders views global warming as a serious problem.[90] Along with Senator Barbara Boxer, Sanders introduced the Global Warming Pollution Reduction Act of 2007 on January 15, 2007.[91] In a July 26, 2012 speech on the Senate floor, Sanders addressed claims made by Senator Jim Inhofe: \"The bottom line is when Senator Inhofe says global warming is a hoax, he is just dead wrong, according to the vast majority of climate scientists.\"[92] He was Climate Hawks Vote's top-rated senator on climate leadership in the 113th Congress.'",
+					economy: "'A cornerstone of Sanders's 2016 presidential campaign was to fight the increasing wealth inequality in the United States. In April 2015, Sanders articulated his position in an interview with The Guardian: What we have seen is that while the average person is working longer hours for lower wages, we have seen a huge increase in income and wealth inequality, which is now reaching obscene levels. This is a rigged economy, which works for the rich and the powerful, and is not working for ordinary Americans ... You know, this country just does not belong to a handful of billionaires.'",
+					"foreign_policy": "'[needs revision] Mostly democrat stances.'"
+				}
+			]
+		
+	},
+		{
+		name: "Sen. Kamala Harris",
+		age: 54,
+		party: "Democrats" ,
+		president_nominee: false,
+		cur_position: "Senator of California",
+		yrs_served: 8,
+		summary:
+			[
+				{
+					bio: "'Sen. Kamala Harris (D-CA), a longtime prosecutor prior to joining Congress in 2016, has made history in every elected office she’s held. She’s the first black woman and the first Asian American woman to serve as a California senator, as the state’s attorney general, and as San Francisco’s district attorney. And in 2020, she would be the first black woman and the first Asian American woman to be a major party nominee if Democrats choose her as their presidential candidate. Harris’s candidacy — and identity — is one that speaks to the energy and growing diversity of the Democratic party: She’s a progressive woman of color who’s made advocacy for DREAMers, the fight for equal pay, and abortion rights core planks of her policy proposals. And she’s built an avid following among voters impressed with her pointed questioning of Trump nominees and officials like Supreme Court Justice Brett Kavanaugh and Attorney General William Barr from her perch on the Senate Judiciary Committee.'",
+					healthcare: "'On August 30, 2017, Harris announced at a town hall in Oakland that she would co-sponsor fellow Senator Bernie Sanders' \"Medicare for All\" bill, supporting single-payer healthcare. In April 2018, Harris was one of ten senators to sponsor the Choose Medicare Act, an expanded public option for health insurance that also increased ObamaCare subsidies and rendered individuals with higher income levels eligible for its assistance. In December 2018, Harris was one of 42 senators to sign a letter to Trump administration officials Alex Azar, Seema Verma, and Steve Mnuchin arguing that the administration was improperly using Section 1332 of the Affordable Care Act to authorize states to \"increase health care costs for millions of consumers while weakening protections for individuals with pre-existing conditions.\" The senators requested the administration withdraw the policy and \"re-engage with stakeholders, states, and Congress.\"'",
+					immigration: "'Immigration is also a policy area that Harris has been deeply engaged with during her time in the Senate. She has earned praise from a crucial contingent of immigration advocates, many of whom have heralded her willingness to stake out her unflinchingly aggressive opposition to the White House. Harris was the first senator to say that she wouldn’t vote for a spending package if Congress didn’t include protections for DREAMers (undocumented immigrants who came to the US as children), and before that, she spent time as attorney general confronting the child migrant crisis. She was also the first to call for Homeland Security Secretary Kirstjen Nielsen to resign in the wake of the Trump administration’s implementation of family separation policies. As a candidate, Harris has put forward a proposal that creatively uses executive action to help create a path to citizenship for DREAMers.'",
+					climate: "'In September 2018, Harris was one of eight senators to sponsor the Climate Risk Disclosure Act, a bill described by cosponsor Elizabeth Warren as using \"market forces to speed up the transition from fossil fuels to cleaner energy – reducing the odds of an environmental and financial disaster without spending a dime of taxpayer money.\"[206] She stated that her goal would be achieving 100% of U.S. electricity from renewable energy sources, and that she supports a Green New Deal, an idea made popular by first term Congresswoman Alexandria Ocasio-Cortez, because \"climate change is an existential threat to all of us.\"'",
+					economy: "'Harris has called for closing the pay gap between teachers and other professions with comparable training, closing the gender wage gap and penalizing companies that don’t do so, and closing the pay gap between public defenders and prosecutors. Two of her other proposals would seek to provide workers with additional financial support. The LIFT the Middle Class Act would give middle-class households a monthly cash payment amounting to as much as $3,000 per year for single people and $6,000 per year for married couples. And a Harris bill focused on job training would give unemployed and underemployed workers up to $8,000 for training programs.'",
+					foreign_policy: "'In 2017, Harris gave a public address to AIPAC attendees. She said: \"I believe Israel should never be a partisan issue, and as long as I'm a United States senator, I will do everything in my power to ensure broad and bipartisan support for Israel's security and right to self-defense.\"[210] She has opposed the Boycott, Divestment and Sanctions movement targeting Israel.[211] She was a co-sponsor of a Senate resolution expressing objection to the UN Security Council Resolution 2334, which condemned Israeli settlement building in the occupied Palestinian territories as a violation of international law.[212][213][211] At the AIPAC conference, she said that \"the first resolution I co-sponsored as a United States senator was to combat anti-Israel bias at the United Nations\".[212] She also supported a Senate resolution celebrating the 50th anniversary of the reunification of Jerusalem.[214][215] In late 2017, she traveled to Israel, where she met with Israeli Prime Minister Benjamin Netanyahu. Harris supported the Iran nuclear deal to prevent Iran from acquiring weapons of mass destruction.[211] In December 2018, after Secretary of State Mike Pompeo announced the Trump administration was suspending its obligations in the Intermediate-Range Nuclear Forces Treaty in 60 days in the event that Russia continued to violate the treaty, she was one of 26 senators to sign a letter expressing concern over the administration \"now abandoning generations of bipartisan U.S. leadership around the paired goals of reducing the global role and number of nuclear weapons and ensuring strategic stability with America's nuclear-armed adversaries\" and calling on Trump to continue arms negotiations.'"
+				}
+			]
+		
+	}
 ];
 
-db.Book
+db.Candidate
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.Candidate.collection.insertMany(candidateSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

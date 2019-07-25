@@ -4,6 +4,7 @@ const router = require("express").Router();
 
 var name = "realDonaldTrump";
 var numOfTweets = 5;
+var id_strings = [];
 // var id_strings = [1152579779297759232, 1152577021668728832];
 
 var T = new Twitter({
@@ -29,7 +30,7 @@ router.get("/tweets/:name", (req, res) => {
     }
     console.log(id_strings);
   })
-  .then(({ data }) => res.send(data))
+  .then(({ id_strings }) => res.send(id_strings))
 });
 
 module.exports = router;

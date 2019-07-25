@@ -4,12 +4,12 @@ const db = require("../models");
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/reactcandidates"
+	process.env.MONGODB_URI ||
+	"mongodb://localhost/authentication"
 );
 
 const candidateSeed = [
-  {
+	{
 		name: "President Donald J. Trump",
 		age: 73,
 		party: "Republican",
@@ -19,7 +19,7 @@ const candidateSeed = [
 		summary:
 			[
 				{
-					bio:  "Trump said that \"I alone can fix\" the system,[29] and pledged that if elected, \"Americanism, not globalism, will be our credo.\"[28] He described himself as a \"law and order\" candidate and \"the voice\" of \"the forgotten men and women.\"[30] Trump's inaugural address on January 20, 2017 focused on his campaign theme of America in crisis and decline.[31] He pledged to end what he referred to as \"American carnage,\"[32][33] depicting the United States in a dystopian light—as a \"land of abandoned factories, economic angst, rising crime\"—while pledging \"a new era in American politics.\". Trump's political positions are viewed by some as populist. Among academics, political writers, and pundits, Trump and his politics have been classified in greater detail, but in varying ways. Politicians and pundits alike have referred to Trump's populism, anti-free trade, and anti-immigrant stances as \"Trumpism\"'",
+					bio: "Trump said that \"I alone can fix\" the system,[29] and pledged that if elected, \"Americanism, not globalism, will be our credo.\"[28] He described himself as a \"law and order\" candidate and \"the voice\" of \"the forgotten men and women.\"[30] Trump's inaugural address on January 20, 2017 focused on his campaign theme of America in crisis and decline.[31] He pledged to end what he referred to as \"American carnage,\"[32][33] depicting the United States in a dystopian light—as a \"land of abandoned factories, economic angst, rising crime\"—while pledging \"a new era in American politics.\". Trump's political positions are viewed by some as populist. Among academics, political writers, and pundits, Trump and his politics have been classified in greater detail, but in varying ways. Politicians and pundits alike have referred to Trump's populism, anti-free trade, and anti-immigrant stances as \"Trumpism\"'",
 					healthcare: "'President Trump advocated repealing and replacing the Affordable Care Act (ACA or \"Obamacare\"). The Republican-controlled House passed the American Health Care Act (AHCA) in May 2017, handing it to the Senate, which decided to write its own version of the bill rather than voting on the AHCA.[204] The Senate bill, called the \"Better Care Reconciliation Act of 2017\" (BCRA), failed on a vote of 45-55 in the Senate during July 2017. Other variations also failed to gather the required support, facing unanimous Democratic Party opposition and some Republican opposition.[205] The Congressional Budget Office estimated that the bills would increase the number of uninsured by over 20 million persons, while reducing the budget deficit marginally.'",
 					climate: "'Trump rejects the scientific consensus on climate change,[159][160][161] repeatedly contending that global warming is a \"hoax.\" By March 2016, Trump had not released any plans to combat climate change or provided details regarding his approach to energy issues more broadly.[155] In May 2016, Trump asked U.S. Representative Kevin Cramer, Republican of North Dakota—described by Reuters as \"one of America's most ardent drilling advocates and climate change skeptics\"—to draft Trump's energy policy'",
 					immigration: "'Illegal immigration was a signature issue of Trump's presidential campaign, and his proposed reforms and controversial remarks about this issue have generated headlines.[5] Trump has also expressed support for a variety of \"limits on legal immigration and guest-worker visas,\"[5][249] including a \"pause\" on granting green cards, which Trump says will \"allow record immigration levels to subside to more moderate historical averages.\"'",
@@ -27,15 +27,15 @@ const candidateSeed = [
 					foreign_policy: "'[Needs revision] In a New York Times interview in July 2016, Presidential Nominee Trump \"repeatedly defined American global interests almost purely in economic terms,\" with the nation's \"roles as a peacekeeper, as a provider of a nuclear deterrent against adversaries like North Korea, as an advocate of human rights and as a guarantor of allies' borders\" being \"quickly reduced to questions of economic benefit to the United States.\"[1] A 68-page document likely written by and under the direction of the Trump administration's national security adviser, Lt. Gen. H.R. McMaster was released by the Trump administration in December 2017,[2] which has been referred to as outlining the administration's doctrine pertaining to foreign policy goals.'"
 				}
 			]
-		
+
 	},
 	{
 		name: "William F. Weld",
-		age:  73,
+		age: 73,
 		party: "Republican",
 		president_nominee: false,
-		cur_position: "Retired" ,
-		yrs_served:  17,
+		cur_position: "Retired",
+		yrs_served: 17,
 		summary:
 			[
 				{
@@ -47,12 +47,12 @@ const candidateSeed = [
 					foreign_policy: "'Weld opposes countries being allowed to develop nuclear without proper oversight, calling proliferation \"the number one threat to the security of the world.\" He supported the Obama administration's Iran nuclear deal.'"
 				}
 			]
-		
+
 	},
 	{
 		name: "Sen. Bernie Sanders",
-		age:  77,
-		party: "Democrats", 
+		age: 77,
+		party: "Democrats",
 		president_nominee: false,
 		cur_position: "Senator of Vermont",
 		yrs_served: 38,
@@ -67,12 +67,12 @@ const candidateSeed = [
 					"foreign_policy": "'[needs revision] Mostly democrat stances.'"
 				}
 			]
-		
+
 	},
 	{
 		name: "Sen. Kamala Harris",
 		age: 54,
-		party: "Democrats" ,
+		party: "Democrats",
 		president_nominee: false,
 		cur_position: "Senator of California",
 		yrs_served: 8,
@@ -87,18 +87,18 @@ const candidateSeed = [
 					foreign_policy: "'In 2017, Harris gave a public address to AIPAC attendees. She said: \"I believe Israel should never be a partisan issue, and as long as I'm a United States senator, I will do everything in my power to ensure broad and bipartisan support for Israel's security and right to self-defense.\"[210] She has opposed the Boycott, Divestment and Sanctions movement targeting Israel.[211] She was a co-sponsor of a Senate resolution expressing objection to the UN Security Council Resolution 2334, which condemned Israeli settlement building in the occupied Palestinian territories as a violation of international law.[212][213][211] At the AIPAC conference, she said that \"the first resolution I co-sponsored as a United States senator was to combat anti-Israel bias at the United Nations\".[212] She also supported a Senate resolution celebrating the 50th anniversary of the reunification of Jerusalem.[214][215] In late 2017, she traveled to Israel, where she met with Israeli Prime Minister Benjamin Netanyahu. Harris supported the Iran nuclear deal to prevent Iran from acquiring weapons of mass destruction.[211] In December 2018, after Secretary of State Mike Pompeo announced the Trump administration was suspending its obligations in the Intermediate-Range Nuclear Forces Treaty in 60 days in the event that Russia continued to violate the treaty, she was one of 26 senators to sign a letter expressing concern over the administration \"now abandoning generations of bipartisan U.S. leadership around the paired goals of reducing the global role and number of nuclear weapons and ensuring strategic stability with America's nuclear-armed adversaries\" and calling on Trump to continue arms negotiations.'"
 				}
 			]
-		
+
 	}
 ];
 
 db.Candidate
-  .remove({})
-  .then(() => db.Candidate.collection.insertMany(candidateSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+	.remove({})
+	.then(() => db.Candidate.collection.insertMany(candidateSeed))
+	.then(data => {
+		console.log(data.result.n + " records inserted!");
+		process.exit(0);
+	})
+	.catch(err => {
+		console.error(err);
+		process.exit(1);
+	});

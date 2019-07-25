@@ -17,7 +17,7 @@ class TwitterContainer extends React.Component {
 
   componentDidMount() {
     axios.get("/api/tweets/" + this.state.name).then((response) => {
-      console.log("response", response.data)
+      console.log("response", response)
       this.setState({ tweets: response.data });
     }).catch(err => console.log(err))
   }

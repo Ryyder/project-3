@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
@@ -9,9 +9,9 @@ import Home from "./components/Home";
 import TweetCard from "./components/TweetCard";
 // import NotFound from "./components/NotFound";
 import TwitterContainer from "./components/TwitterContainer";
-// import NotFound from "./components/NotFound";
-// import News from "./components/News"
-// import Accordion from "./components/Accordion"
+import NotFound from "./components/NotFound";
+import News from "./components/News"
+import Accordion from "./components/Accordion"
 
 
 export default class App extends Component {
@@ -26,15 +26,15 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/profile" component={Profile} />
+          <ProtectedRoute path="/profile" component={Profile} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/tweet" component={TweetCard} />
           <Route path="/twitter" component={TwitterContainer} />
-          {/* <Route path="/news" component={News} /> */}
-          {/* <Route path="/accordion" component={Accordion} /> */}
-          {/* <Route path="*" component={NotFound} /> */}
+          <Route path="/news" component={News} />
+          <Route path="/accordion" component={Accordion} />
+          <Route path="*" component={NotFound} />
 
         </Switch>
       </Router>

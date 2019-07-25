@@ -15,8 +15,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import HomeIcon from '@material-ui/icons/Home'
+import VoteIcon from '@material-ui/icons/HowToVote'
+import SettingsIcon from '@material-ui/icons/Settings'
+import ExitIcon from '@material-ui/icons/ExitToApp'
 
 const drawerWidth = 240;
 
@@ -28,6 +30,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      background: "red"
     }),
   },
   appBarShift: {
@@ -87,6 +90,11 @@ export default function Menu() {
 
   function handleDrawerClose() {
     setOpen(false);
+  }
+
+  function handleLogout () {
+    window.localStorage.clear();
+    window.location.href = '/';
   }
 
   return (
@@ -159,21 +167,27 @@ export default function Menu() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          {/* {['Home', 'My Election Info', 'Perf', 'Drafts'].map((text, index) => ( */}
+            <ListItem button key="Home">
+              <ListItemIcon><HomeIcon /></ListItemIcon>
+              <ListItemText primary="Home" />
             </ListItem>
-          ))}
+            <ListItem button key="My Election Info">
+              <ListItemIcon><VoteIcon /></ListItemIcon>
+              <ListItemText primary="My Election Info" />
+            </ListItem>
+            <ListItem button key="Preferences">
+              <ListItemIcon><SettingsIcon /></ListItemIcon>
+              <ListItemText primary="Preferences" />
+            </ListItem>
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => ( */}
+            <ListItem button key="Log Out" onClick={handleLogout}>
+              <ListItemIcon><ExitIcon /></ListItemIcon>
+              <ListItemText primary="Log Out" />
             </ListItem>
-          ))}
         </List>
       </Drawer>
     </div>

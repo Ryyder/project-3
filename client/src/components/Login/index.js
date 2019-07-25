@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import logo from '../../united-states.png';
 
 
 
@@ -49,6 +50,7 @@ export default class Home extends Component {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (isAuthenticated) {
+      console.log("hi");
       return <Redirect to="/" />
     }
 
@@ -61,6 +63,7 @@ export default class Home extends Component {
         <div className="container">
           <div id="authLogo" className="row">
             <div className="col s12">
+              <img src={logo} height="200" />
               <h2>RE:DEM</h2>
             </div>
           </div>

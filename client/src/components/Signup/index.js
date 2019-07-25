@@ -28,7 +28,7 @@ export default class Signup extends Component {
       .then((response) => {
         const isAuthenticated = response.data.isAuthenticated;
         window.localStorage.setItem("isAuthenticated", isAuthenticated);
-        this.props.history.push("/profile");
+        this.props.history.push("/");
       })
       .catch((error) => {
         this.setState({

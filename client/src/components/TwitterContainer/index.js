@@ -1,7 +1,9 @@
 import React from "react";
 import "./style.css";
 import TweetCard from "../TweetCard";
-// import Axios from "axios";
+// import { TwitterTweetEmbed } from 'react-twitter-embed';
+
+import axios from "axios";
 
 // Create a Tweets.json file that stores a list of tweet ids returned from the twitter api call
 // In TweetCard component put the code for creating each tweet using the given code from the internet
@@ -9,19 +11,22 @@ import TweetCard from "../TweetCard";
 class TwitterContainer extends React.Component {
 
   state = {
-    tweets: ["1152579779297759232", "1152577021668728832"],
-    // name: "realDonaldTrump"
+    tweets: [],
+    name: "realDonaldTrump"
   }
 
-  // componentDidMount() {
-  //   Axios.get("/tweets")
-  // }
+  componentDidMount() {
+    axios.get("/api/tweets/" + this.state.name).then((response) => {
+      console.log("response", response.data)
+      this.setState({ tweets: response.data });
+    }).catch(err => console.log(err))
+  }
 
   renderTweets = () => (
     this.state.tweets.map(tweet => (
       <TweetCard
-      key={tweet}
-      id={tweet}
+        key={tweet}
+        id={tweet}
       />
     ))
   );
@@ -31,7 +36,10 @@ class TwitterContainer extends React.Component {
     return (
       <div className="container">
         <div className="twitterContainer">
-            {this.renderTweets()}
+          {/* <TwitterTweetEmbed
+            tweetId={"1152579779297759232"}
+            /> */}
+          {this.renderTweets()}
         </div>
       </div>
     );

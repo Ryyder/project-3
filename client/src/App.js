@@ -7,8 +7,11 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import TweetCard from "./components/TweetCard";
-import NotFound from "./components/NotFound";
+// import NotFound from "./components/NotFound";
 import TwitterContainer from "./components/TwitterContainer";
+// import NotFound from "./components/NotFound";
+// import News from "./components/News"
+// import Accordion from "./components/Accordion"
 
 
 export default class App extends Component {
@@ -29,7 +32,10 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/tweet" component={TweetCard} />
           <Route path="/twitter" component={TwitterContainer} />
-          <Route path="*" component={NotFound} />
+          {/* <Route path="/news" component={News} /> */}
+          {/* <Route path="/accordion" component={Accordion} /> */}
+          {/* <Route path="*" component={NotFound} /> */}
+
         </Switch>
       </Router>
 

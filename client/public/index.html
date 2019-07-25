@@ -21,6 +21,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>React App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -44,39 +45,60 @@
 
 <script>
 
-// var tweets = document.getElementsByClassName("tweet");
-//     for (var tweet in tweets) {
-//       if (tweets.hasOwnProperty(tweet)) {
-//         var id = tweet.getAttribute('id');
-//         twtter.widgets.createTweet(
-//           id, tweet,
-//           {
-//             conversation: 'none',    // or all
-//             cards: 'hidden',  // or visible 
-//             linkColor: '#cc0000', // default is blue
-//             theme: 'light'    // or dark
-//           }
-//         )
-//       }
-//     }
+  // var tweets = document.getElementsByClassName("tweet");
+  //     for (var tweet in tweets) {
+  //       if (tweets.hasOwnProperty(tweet)) {
+  //         var id = tweet.getAttribute('id');
+  //         twtter.widgets.createTweet(
+  //           id, tweet,
+  //           {
+  //             conversation: 'none',    // or all
+  //             cards: 'hidden',  // or visible 
+  //             linkColor: '#cc0000', // default is blue
+  //             theme: 'light'    // or dark
+  //           }
+  //         )
+  //       }
+  //     }
+
+
 
   window.onload = (function () {
 
 
-    var tweet = document.getElementById("tweet");
-    var id = tweet.getAttribute("tweetID");
+    var tweets = $(".tweet");
 
-    twttr.widgets.createTweet(
-      id, tweet,
-      {
-        conversation: 'none',    // or all
-        cards: 'visible',  // or visible 
-        linkColor: '#cc0000', // default is blue
-        theme: 'light'    // or dark
-      })
-      .then(function (el) {
-        el.contentDocument.querySelector(".footer").style.display = "none";
-      });
+    $(tweets).each(function (t, tweet) {
+
+      var id = $(this).attr('id');
+
+      twttr.widgets.createTweet(
+        id, tweet,
+        {
+          conversation: 'none',    // or all
+          cards: 'visible',  // or visible 
+          linkColor: '#cc0000', // default is blue
+          theme: 'light'    // or dark
+        });
+
+    });
+
+
+
+    // var tweet = document.getElementById("tweet");
+    // var id = tweet.getAttribute("tweetID");
+
+    // twttr.widgets.createTweet(
+    //   id, tweet,
+    //   {
+    //     conversation: 'none',    // or all
+    //     cards: 'visible',  // or visible 
+    //     linkColor: '#cc0000', // default is blue
+    //     theme: 'light'    // or dark
+    //   })
+    //   .then(function (el) {
+    //     el.contentDocument.querySelector(".footer").style.display = "none";
+    //   });
 
   });
 

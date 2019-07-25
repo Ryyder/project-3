@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+// import { TwitterTweetEmbed } from 'react-twitter-embed';
+
 
 // Create a Tweets.json file that stores a list of tweet ids returned from the twitter api call
 // In TweetCard component put the code for creating each tweet using the given code from the internet
@@ -27,7 +29,7 @@ function TweetCard(props) {
   console.log(props);
   
   return (
-    <div id="tweet" tweetID={props.id}></div>
+    <div className="tweet" id={props.id}></div>
   );
 }
 

@@ -3,6 +3,7 @@ var Twitter = require('twitter');
 const router = require("express").Router();
 
 var name = "realDonaldTrump";
+var numOfTweets = 5;
 // var id_strings = [1152579779297759232, 1152577021668728832];
 
 var T = new Twitter({
@@ -17,7 +18,10 @@ var T = new Twitter({
 
 
 router.get("/tweets/:name", (req, res) => {
-  T.get('statuses/user_timeline', { screen_name: req.params.name, count: 2 }, function (err, data, response) {
+  // if (req.params.name === "Trump") {
+  //   var name = "realDonaldTrump";
+  // }
+  T.get('statuses/user_timeline', { screen_name: req.params.name, count: numOfTweets }, function (err, data, response) {
     
     console.log(data);
     for (let i = 0; i < numOfTweets; i++) {
@@ -25,6 +29,7 @@ router.get("/tweets/:name", (req, res) => {
     }
     console.log(id_strings);
   })
+  .then(({ data }) => res.send(data))
 });
 
 module.exports = router;

@@ -22,11 +22,11 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
+          <Route path="/login" component={Login} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <Route path="/profile" component={Profile} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
           <Route path="/news" component={News} />
           <Route path="/accordion" component={Accordion} />
           <Route path="*" component={NotFound} />

@@ -18,6 +18,7 @@ mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
 // Use newsAPI
 app.use("/api", API);
+app.use('/api', twitterAPI);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,7 +33,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/authentication', usersRouter);
 app.use('/', indexRouter);
-app.use('/api', twitterAPI);
 //app.use('/google', googleRouter);
 
 

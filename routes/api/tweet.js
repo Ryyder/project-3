@@ -26,8 +26,8 @@ router.get("/tweets/:name", (req, res) => {
       id_strings[i] = data[i].id_str
     }
     console.log(id_strings);
+    res.json(id_strings)
   })
-  .then(({ data }) => res.send(data))
 });
 
 module.exports = router;

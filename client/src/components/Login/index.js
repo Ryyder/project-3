@@ -25,7 +25,7 @@ export default class Home extends Component {
       .then((response) => {
         const isAuthenticated = response.data.isAuthenticated;
         window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
-        this.props.history.push("/profile");
+        this.props.history.push("/accordion");
       })
       .catch((error) => {
         this.setState({
@@ -49,7 +49,7 @@ export default class Home extends Component {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (isAuthenticated) {
-      return <Redirect to="/profile" />
+      return <Redirect to="/accordion" />
     }
 
 

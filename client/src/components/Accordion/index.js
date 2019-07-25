@@ -5,6 +5,7 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import News from "../News"
+import Logout from "../Logout"
 
 const ExpansionPanel = withStyles({
   root: {
@@ -56,6 +57,7 @@ export default function CustomizedExpansionPanels() {
 
   return (
     <div>
+      <Logout />
       <ExpansionPanel square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <ExpansionPanelSummary aria-controls="panel1d-content" id="panel1d-header">
           <Typography>Biography</Typography>

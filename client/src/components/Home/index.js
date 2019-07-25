@@ -72,7 +72,7 @@ export default class Home extends Component {
               <form onSubmit={this.handleSubmit}>
                 <label for="email">Email Address</label>
 
-                <input type="text" name="email" onChange={this.handleChange} />
+                <input type="email" name="email" onChange={this.handleChange} />
                 <label for="password">Password</label>
 
                 <input type="password" name="password" onChange={this.handleChange} />

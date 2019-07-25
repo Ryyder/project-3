@@ -1,4 +1,16 @@
 import React from 'react';
-import "./PartyDisplay.css"
+import "./style.css"
 
-const PartyDisplay = 
+class PartyDisplay extends Component {
+    state = {
+        selectedParty: "",
+        partyMembers: []
+    };
+
+    render() {
+        return(
+            
+        );
+    };
+};
+

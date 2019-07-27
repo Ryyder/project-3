@@ -8,16 +8,13 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 // import TweetCard from "./components/TweetCard";
-// import NotFound from "./components/NotFound";
 import TwitterContainer from "./components/TwitterContainer";
 import PartyDisplay from "./components/PartyDisplay";
 import CandidatePage from "./components/CandidatePage";
-
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
-import CandidatePage from "./components/Candidate";
-import Menu from "./components/Menu"
+// import Menu from "./components/Menu"
 
 
 export default class App extends Component {

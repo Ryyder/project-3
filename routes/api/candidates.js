@@ -14,7 +14,7 @@ const candidatesController = require("../../controllers/candidatesController");
 //   .delete(booksController.remove);
   
   // Matches with "/api/candidates"
-  router.route("/candidates")
+  router.route("/")
     .get(candidatesController.findAll)
     // .then(({data}) => res.send(data))
     // .catch(err => res.status(422).json(err));

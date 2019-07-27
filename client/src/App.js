@@ -13,6 +13,7 @@ import CandidatePage from "./components/CandidatePage";
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
+import Menu from "./components/Menu"
 
 
 export default class App extends Component {

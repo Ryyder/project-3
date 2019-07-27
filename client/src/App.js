@@ -42,15 +42,18 @@ export default class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <ProtectedRoute exact path="/" component={Home} />
-              <ProtectedRoute path="/profile" component={Profile} />
-              <ProtectedRoute path="/dashboard" component={Dashboard} />
-              <ProtectedRoute path="/news" component={News} />
-              <ProtectedRoute path="/accordion" component={Accordion} />
-              <ProtectedRoute path="/twitter" component={TwitterContainer} />
-              <ProtectedRoute path="/candidate" component={CandidatePage} />
 
+
+
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute path="/news" component={News} />
+            <ProtectedRoute path="/accordion" component={Accordion} />
+            <ProtectedRoute path="/twitter" component={TwitterContainer} />
+            <ProtectedRoute path="/candidate" component={CandidatePage} />
+            
             {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
-            <ProtectedRoute
+            <Route
               path="/:party/:candidateName"
               render={(props) =>
                 <CandidatePage
@@ -59,7 +62,7 @@ export default class App extends Component {
               }
             />
             {/* <ProtectedRoute path="/:party" component={PartyDisplay} /> */}
-            <ProtectedRoute
+            <Route
               path="/:party"
               render={(props) =>
                 <PartyDisplay
@@ -67,7 +70,6 @@ export default class App extends Component {
                 />
               }
             />
-
 
             <ProtectedRoute path="*" component={NotFound} />
 

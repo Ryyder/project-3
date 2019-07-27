@@ -47,7 +47,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
   },
 }))(MuiExpansionPanelDetails);
 
-export default function CustomizedExpansionPanels() {
+export default function CustomizedExpansionPanels(props) {
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = panel => (event, newExpanded) => {
@@ -62,9 +62,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            {props.summary.bio}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -74,9 +72,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            {props.summary.healthcare}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -86,9 +82,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            {props.summary.foreign}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -98,9 +92,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {props.summary.immigration}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -110,9 +102,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {props.summary.tax}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -122,7 +112,7 @@ export default function CustomizedExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <News />
+            <News news_name={props.news_name}/>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

@@ -16,6 +16,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "President of United States",
 		yrs_served: 3,
+		twitter:"realDonaldTrump",
+		route_name:"donaldtrump",
+		news_name:"donald trump",
 		summary:
 			[
 				{
@@ -36,6 +39,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "Retired",
 		yrs_served: 17,
+		twitter:"GovBillWeld",
+		route_name:"billweld",
+		news_name:"bill weld",
 		summary:
 			[
 				{
@@ -56,6 +62,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "Senator of Vermont",
 		yrs_served: 38,
+		twitter:"BernieSanders",
+		route_name:"berniesanders",
+		news_name:"bernie sanders",
 		summary:
 			[
 				{
@@ -76,6 +85,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "Senator of California",
 		yrs_served: 8,
+		twitter:"KamalaHarris",
+		route_name:"kamalaharris",
+		news_name:"kamala harris",
 		summary:
 			[
 				{

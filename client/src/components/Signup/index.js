@@ -28,7 +28,7 @@ export default class Signup extends Component {
       .then((response) => {
         const isAuthenticated = response.data.isAuthenticated;
         window.localStorage.setItem("isAuthenticated", isAuthenticated);
-        this.props.history.push("/profile");
+        this.props.history.push("/");
       })
       .catch((error) => {
         this.setState({
@@ -64,7 +64,7 @@ export default class Signup extends Component {
               <form onSubmit={this.handleSubmit}>
                 <label for="email">Email Address</label>
 
-                <input type="text" name="email" onChange={this.handleChange} />
+                <input type="email" name="email" onChange={this.handleChange} />
                 <label for="password">Password</label>
 
                 <input type="password" name="password" onChange={this.handleChange} />

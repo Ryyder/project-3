@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
+import PartyDisplay from "./components/PartyDisplay";
+import CandidatePage from "./components/CandidatePage";
+
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
@@ -16,9 +20,46 @@ export default class App extends Component {
 
 
   render() {
+    // How to send props into routed components
+    // <Route
+    //   path="/"
+    //   render={(props) =>
+    //     <Game
+    //       handleGuess={this.handleGuess}
+    //       onRef={ref => (this.child = ref)}
+    //     />
+    //   }
+    // />
+
+      //JSX
+      return (
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <ProtectedRoute exact path="/" component={Home} />
+
+            {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
+            <Route
+              path="/:party/:candidateName"
+              render={(props) =>
+                <CandidatePage
+                  test="test Prop"
+                />
+              }
+            />
+            {/* <ProtectedRoute path="/:party" component={PartyDisplay} /> */}
+            <Route
+              path="/:party"
+              render={(props) =>
+                <PartyDisplay
+                  test="test Prop"
+                />
+              }
+            />
 
 
-
+<<<<<<< HEAD
     //JSX
     return (
       <Router>
@@ -32,10 +73,17 @@ export default class App extends Component {
           <Route path="/accordion" component={Accordion} />
           <Route path="/menu" component={Menu} />
           <Route path="*" component={NotFound} />
+=======
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute path="/news" component={News} />
+            <ProtectedRoute path="/accordion" component={Accordion} />
+            <ProtectedRoute path="*" component={NotFound} />
+>>>>>>> dev
 
-        </Switch>
-      </Router>
+          </Switch>
+        </Router>
 
-    );
+      );
   }
 }

@@ -16,13 +16,15 @@ const candidatesController = require("../../controllers/candidatesController");
   // Matches with "/api/candidates"
   router.route("/")
     .get(candidatesController.findAll)
-    .post(candidatesController.create);
+    // .then(({data}) => res.send(data))
+    // .catch(err => res.status(422).json(err));
+    // .post(candidatesController.create);
   
   // Matches with "/api/candidates/:id"
-  router
-    .route("/:id")
-    .get(candidatesController.findById)
-    .put(candidatesController.update)
-    .delete(candidatesController.remove);
+//   router
+//     .route("/:id")
+//     .get(candidatesController.findById)
+//     .put(candidatesController.update)
+//     .delete(candidatesController.remove);
 
 module.exports = router;

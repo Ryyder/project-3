@@ -8,6 +8,7 @@ const passport = require("./passport");
 const cookieSession = require('cookie-session');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const twitterAPI = require('./routes/api/tweet')
 const API = require("./routes/api/news");
 /* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
 // Use newsAPI
 app.use("/api", API);
+app.use('/api', twitterAPI);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,6 +34,7 @@ app.use(passport.session());
 app.use('/authentication', usersRouter);
 app.use('/', indexRouter);
 //app.use('/google', googleRouter);
+
 
 
 

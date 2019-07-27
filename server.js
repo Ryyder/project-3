@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const twitterAPI = require('./routes/api/tweet')
 const API = require("./routes/api/news");
+const candidateAPI = require("./routes/api/candidates");
 /* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
 
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 // Use newsAPI
 app.use("/api", API);
 app.use('/api', twitterAPI);
+app.use('/api', candidateAPI);
 
 app.use(logger('dev'));
 app.use(express.json());

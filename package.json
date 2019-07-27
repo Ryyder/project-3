@@ -38,6 +38,5 @@
     "passport-local": "^1.0.0",
     "twit": "^2.2.11",
     "validator": "^11.1.0"
-
   }
 }

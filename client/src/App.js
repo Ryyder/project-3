@@ -59,27 +59,11 @@ export default class App extends Component {
             />
 
 
-<<<<<<< HEAD
-    //JSX
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/news" component={News} />
-          <Route path="/accordion" component={Accordion} />
-          <Route path="/menu" component={Menu} />
-          <Route path="*" component={NotFound} />
-=======
             <ProtectedRoute path="/profile" component={Profile} />
             <ProtectedRoute path="/dashboard" component={Dashboard} />
             <ProtectedRoute path="/news" component={News} />
             <ProtectedRoute path="/accordion" component={Accordion} />
             <ProtectedRoute path="*" component={NotFound} />
->>>>>>> dev
 
           </Switch>
         </Router>

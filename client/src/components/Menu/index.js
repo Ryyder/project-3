@@ -19,6 +19,8 @@ import HomeIcon from '@material-ui/icons/Home'
 import VoteIcon from '@material-ui/icons/HowToVote'
 import SettingsIcon from '@material-ui/icons/Settings'
 import ExitIcon from '@material-ui/icons/ExitToApp'
+import logo from '../../united-states.png';
+
 
 const drawerWidth = 240;
 
@@ -30,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-      background: "red"
+      background: '#2E3B55'
     }),
   },
   appBarShift: {
@@ -92,7 +94,7 @@ export default function Menu() {
     setOpen(false);
   }
 
-  function handleLogout () {
+  function handleLogout() {
     window.localStorage.clear();
     window.location.href = '/';
   }
@@ -101,6 +103,7 @@ export default function Menu() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        style={{ background: 'white' }}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -108,7 +111,7 @@ export default function Menu() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.title}>
-            Persistent drawer
+            <img src={logo} height="50" />
           </Typography>
           <IconButton
             color="inherit"
@@ -117,7 +120,8 @@ export default function Menu() {
             onClick={handleDrawerOpen}
             className={clsx(open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon style={{ background: 'black' }}
+            />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -168,26 +172,26 @@ export default function Menu() {
         <Divider />
         <List>
           {/* {['Home', 'My Election Info', 'Perf', 'Drafts'].map((text, index) => ( */}
-            <ListItem button key="Home">
-              <ListItemIcon><HomeIcon /></ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-            <ListItem button key="My Election Info">
-              <ListItemIcon><VoteIcon /></ListItemIcon>
-              <ListItemText primary="My Election Info" />
-            </ListItem>
-            <ListItem button key="Preferences">
-              <ListItemIcon><SettingsIcon /></ListItemIcon>
-              <ListItemText primary="Preferences" />
-            </ListItem>
+          <ListItem button key="Home">
+            <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button key="My Election Info">
+            <ListItemIcon><VoteIcon /></ListItemIcon>
+            <ListItemText primary="My Election Info" />
+          </ListItem>
+          <ListItem button key="Preferences">
+            <ListItemIcon><SettingsIcon /></ListItemIcon>
+            <ListItemText primary="Preferences" />
+          </ListItem>
         </List>
         <Divider />
         <List>
           {/* {['All mail', 'Trash', 'Spam'].map((text, index) => ( */}
-            <ListItem button key="Log Out" onClick={handleLogout}>
-              <ListItemIcon><ExitIcon /></ListItemIcon>
-              <ListItemText primary="Log Out" />
-            </ListItem>
+          <ListItem button key="Log Out" onClick={handleLogout}>
+            <ListItemIcon><ExitIcon /></ListItemIcon>
+            <ListItemText primary="Log Out" />
+          </ListItem>
         </List>
       </Drawer>
     </div>

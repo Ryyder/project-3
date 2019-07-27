@@ -21,14 +21,14 @@ class CandidatePage extends React.Component {
 
     componentDidMount() {
         // Query DB for candidate ID
-        axios.get("/api/candidates/5d3bcb536ec6de546888e18b").then((response) =>{
+        axios.get("/api/candidates").then((response) =>{
             console.log("DB test");
-            console.log(response);
+            console.log(response.data);
         })
     }
 
     render() {
-      console.log("test");
+    //   console.log("test");
       return (
         <div className="container">
           <Accordion />

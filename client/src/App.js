@@ -14,7 +14,8 @@ import CandidatePage from "./components/CandidatePage";
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
-// import Menu from "./components/Menu"
+// import CandidatePage from "./components/Candidate";
+import Menu from "./components/Menu"
 
 
 export default class App extends Component {
@@ -40,6 +41,15 @@ export default class App extends Component {
             <Route path="/signup" component={Signup} />
             <ProtectedRoute exact path="/" component={Home} />
 
+
+
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute path="/news" component={News} />
+            <ProtectedRoute path="/accordion" component={Accordion} />
+            <ProtectedRoute path="/twitter" component={TwitterContainer} />
+            <ProtectedRoute path="/candidate" component={CandidatePage} />
+            
             {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
             <Route
               path="/:party/:candidateName"
@@ -59,13 +69,6 @@ export default class App extends Component {
               }
             />
 
-
-            <ProtectedRoute path="/profile" component={Profile} />
-            <ProtectedRoute path="/dashboard" component={Dashboard} />
-            <ProtectedRoute path="/news" component={News} />
-            <ProtectedRoute path="/accordion" component={Accordion} />
-            <ProtectedRoute path="/twitter" component={TwitterContainer} />
-            <ProtectedRoute path="/candidate" component={CandidatePage} />
             <ProtectedRoute path="*" component={NotFound} />
 
           </Switch>

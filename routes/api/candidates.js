@@ -22,7 +22,7 @@ const candidatesController = require("../../controllers/candidatesController");
   
   // Matches with "/api/candidates/:id"
   router
-    // .route("/candidates/:id")
+    .route("/candidates/:id")
     .get(candidatesController.findById)
     // .put(candidatesController.update)
     // .delete(candidatesController.remove);

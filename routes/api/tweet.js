@@ -20,8 +20,6 @@ var T = new Twit({
 
 router.get("/tweets/:name", (req, res) => {
   T.get('statuses/user_timeline', { screen_name: req.params.name, count: numOfTweets }, function (err, data, response) {
-    
-    console.log(data);
     for (let i = 0; i < numOfTweets; i++) {
       id_strings[i] = data[i].id_str
     }

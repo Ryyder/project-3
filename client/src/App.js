@@ -12,6 +12,7 @@ import TwitterContainer from "./components/TwitterContainer";
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
+import CandidatePage from "./components/Candidate";
 
 
 export default class App extends Component {
@@ -34,6 +35,7 @@ export default class App extends Component {
           <Route path="/twitter" component={TwitterContainer} />
           <Route path="/news" component={News} />
           <Route path="/accordion" component={Accordion} />
+          <Route path="/candidate" component={CandidatePage} />
           <Route path="*" component={NotFound} />
 
         </Switch>

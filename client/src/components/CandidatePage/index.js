@@ -3,10 +3,9 @@ import {withRouter} from 'react-router';
 import TwitterContainer from "../TwitterContainer";
 import Accordion from "../Accordion";
 import axios from "axios";
-import "./style.css"
+// import "./style.css"
 
 class CandidatePage extends React.Component {
-
     state = {
         name: "",
         twitter: "",
@@ -16,30 +15,35 @@ class CandidatePage extends React.Component {
         climate: "",
         immigration: "",
         economy: "",
-        foreign_policy: ""
+        foreign_policy: "",
+        summary: []
     }
-
     componentDidMount() {
         // Query DB for candidate ID
-        axios.get("/api/candidates").then((response) =>{
+        axios.get("/api/candidates/5d3c8efe064f8b9e69d1fadf").then((response) =>{
             console.log("DB test");
-            console.log(response.data);
-        })
+            console.log(response.data)
+            console.log("twitter = ", response.data.twitter)
+            this.setState({ 
+              summary: response.data.summary[0],
+              news_name:  response.data.news_name,
+              twitter: response.data.twitter
+            });
+        }).catch(err => console.log(err))
     }
-
     render() {
-    //   console.log("test");
+      console.log("Candidate state.twitter = ", this.state.twitter);
+      const twitterContainer = (
+        <TwitterContainer 
+          name={this.state.twitter}
+        />
+      );
       return (
         <div className="container">
-          <Accordion />
-          <TwitterContainer />
+          <Accordion summary={this.state.summary} news_name={this.state.news_name}/>
+          {this.state.twitter ? twitterContainer : 'Loading..'}
         </div>
       )
     }
   }
-
 export default withRouter(CandidatePage);
-
-
-{/* <h2>{this.props.match.params.party}</h2> */}
-{/* <h2>{this.props.match.params.candidateName}</h2> */}

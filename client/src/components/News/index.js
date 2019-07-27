@@ -10,9 +10,11 @@ class News extends Component {
  
   state = {
     articles: [],
-    candidate: "trump"
+    candidate: ""
   };
+
 componentDidMount() {
+  this.setState({candidate: this.props.candidate})
   axios.get("/api/news/"+this.state.candidate).then((response)=>{
     console.log("response", response.data)
     this.setState({ articles:response.data });

@@ -112,7 +112,7 @@ export default function CustomizedExpansionPanels(props) {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <News news_name={props.news_name}/>
+            <News candidate={props.news_name}/>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

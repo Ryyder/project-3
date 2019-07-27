@@ -68,26 +68,46 @@ export default function CustomizedExpansionPanels(props) {
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <ExpansionPanelSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Healthcare</Typography>
+          <Typography>Climate</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            {props.summary.healthcare}
+            {props.summary.climate}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <ExpansionPanelSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Foreign Policy</Typography>
+          <Typography>Economy</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            {props.summary.foreign}
+            {props.summary.economy}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
         <ExpansionPanelSummary aria-controls="panel4d-content" id="panel4d-header">
+          <Typography>Foreign Policy</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          {props.summary.foreign_policy}
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+        <ExpansionPanelSummary aria-controls="panel5d-content" id="panel5d-header">
+          <Typography>Healthcare</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          {props.summary.healthcare}
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+        <ExpansionPanelSummary aria-controls="panel5d-content" id="panel5d-header">
           <Typography>Immigration</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -96,17 +116,7 @@ export default function CustomizedExpansionPanels(props) {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
-        <ExpansionPanelSummary aria-controls="panel5d-content" id="panel5d-header">
-          <Typography>Tax Reform</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-          {props.summary.tax}
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+      <ExpansionPanel square expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
         <ExpansionPanelSummary aria-controls="panel6d-content" id="panel6d-header">
           <Typography>Latest News</Typography>
         </ExpansionPanelSummary>

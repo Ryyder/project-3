@@ -23,11 +23,12 @@ class News extends Component {
     }
   }
 
+
 }
 
 
 render() {
-    console.log(this.state.articles)
+    // console.log(this.state.articles)
     return (
         <div className="cardDiv">{this.state.articles.map(article => {
           return (

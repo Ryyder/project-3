@@ -16,6 +16,7 @@ import News from "./components/News"
 import Accordion from "./components/Accordion"
 // import CandidatePage from "./components/Candidate";
 import Menu from "./components/Menu"
+import CandidateTest from "./components/CandidateTest"
 
 
 export default class App extends Component {
@@ -48,7 +49,9 @@ export default class App extends Component {
             <ProtectedRoute path="/news" component={News} />
             <ProtectedRoute path="/accordion" component={Accordion} />
             <ProtectedRoute path="/twitter" component={TwitterContainer} />
+            <ProtectedRoute path="/menu" component={Menu} />
             <ProtectedRoute path="/candidate" component={CandidatePage} />
+            <ProtectedRoute path="/candidatetest" component={CandidateTest} />
             
             {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
             <Route

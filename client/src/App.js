@@ -22,6 +22,22 @@ import Menu from "./components/Menu"
 
 export default class App extends Component {
 
+  state = {
+    selectedParty: "None",
+    selectCandidateId: "None"
+  };
+
+  // This method used to get the ID of a candidate that is selected from the PartyDisplay page
+  //  Then changes the this.state.selectedCandidateId gotten from the candidate selected in PartyDisplay
+  handleCandidateSelect = id => {
+    console.log(id);
+  }
+
+  // This method used to change the state of the selectedParty in App.js, selected from the Home page.
+  handlePartySelect = party => {
+    console.log(party);
+  }
+
 
   render() {
     // How to send props into routed components
@@ -36,13 +52,12 @@ export default class App extends Component {
     // />
 
       //JSX
-      return (
+      return (  
         <Router>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <ProtectedRoute exact path="/" component={Home} />
-
 
 
             <ProtectedRoute path="/profile" component={Profile} />
@@ -53,22 +68,16 @@ export default class App extends Component {
             <ProtectedRoute path="/candidate" component={CandidatePage} />
             
             {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
-            <Route
+            <ProtectedRoute
               path="/:party/:candidateName"
-              render={(props) =>
-                <CandidatePage
-                  test="test Prop"
-                />
-              }
+              component={CandidatePage}
+              test="test Prop"
             />
             {/* <ProtectedRoute path="/:party" component={PartyDisplay} /> */}
-            <Route
+            <ProtectedRoute
               path="/:party"
-              render={(props) =>
-                <PartyDisplay
-                  test="test Prop"
-                />
-              }
+              component={PartyDisplay}
+              handlePartySelect={this.handleCandidateSelect}
             />
 
             <ProtectedRoute path="*" component={NotFound} />

@@ -14,6 +14,7 @@ class CandidatePage extends React.Component {
                 <h1>I am the CandidatePage Component</h1>
                 <h2>{this.props.match.params.party}</h2>
                 <h2>{this.props.match.params.candidateName}</h2>
+                <h3>{this.props.test}</h3>
             </div>
         );
     };

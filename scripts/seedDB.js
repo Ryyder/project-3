@@ -19,6 +19,7 @@ const candidateSeed = [
 		twitter:"realDonaldTrump",
 		route_name:"donaldtrump",
 		news_name:"donald trump",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/606px-Donald_Trump_official_portrait.jpg",
 		summary:
 			[
 				{
@@ -42,6 +43,7 @@ const candidateSeed = [
 		twitter:"GovBillWeld",
 		route_name:"billweld",
 		news_name:"bill weld",
+		img_url: "https://en.wikipedia.org/wiki/Bill_Weld#/media/File:Bill_Weld_campaign_portrait.jpg",
 		summary:
 			[
 				{
@@ -65,6 +67,7 @@ const candidateSeed = [
 		twitter:"BernieSanders",
 		route_name:"berniesanders",
 		news_name:"bernie sanders",
+		img_url: "https://en.wikipedia.org/wiki/Bernie_Sanders#/media/File:Bernie_Sanders.jpg",
 		summary:
 			[
 				{
@@ -88,6 +91,7 @@ const candidateSeed = [
 		twitter:"KamalaHarris",
 		route_name:"kamalaharris",
 		news_name:"kamala harris",
+		img_url: "https://en.wikipedia.org/wiki/Kamala_Harris#/media/File:Senator_Harris_official_senate_portrait.jpg",
 		summary:
 			[
 				{

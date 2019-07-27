@@ -1,22 +1,45 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import TwitterContainer from "../TwitterContainer";
+import Accordion from "../Accordion";
+import axios from "axios";
 import "./style.css"
 
 class CandidatePage extends React.Component {
+
     state = {
-        // selectedParty: "",
-        // partyMembers: []
-    };
+        name: "",
+        twitter: "",
+        news_name: "",
+        bio: "",
+        healthcare: "",
+        climate: "",
+        immigration: "",
+        economy: "",
+        foreign_policy: ""
+    }
+
+    componentDidMount() {
+        // Query DB for candidate ID
+        axios.get("/api/candidates/5d3bcb536ec6de546888e18b").then((response) =>{
+            console.log("DB test");
+            console.log(response);
+        })
+    }
 
     render() {
-        return(
-            <div>
-                <h1>I am the CandidatePage Component</h1>
-                <h2>{this.props.match.params.party}</h2>
-                <h2>{this.props.match.params.candidateName}</h2>
-            </div>
-        );
-    };
-};
+      console.log("test");
+      return (
+        <div className="container">
+          <Accordion />
+          <TwitterContainer />
+        </div>
+      )
+    }
+  }
 
 export default withRouter(CandidatePage);
+
+
+{/* <h2>{this.props.match.params.party}</h2> */}
+{/* <h2>{this.props.match.params.candidateName}</h2> */}

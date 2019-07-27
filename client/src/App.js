@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
-import TweetCard from "./components/TweetCard";
+// import TweetCard from "./components/TweetCard";
 // import NotFound from "./components/NotFound";
 import TwitterContainer from "./components/TwitterContainer";
+import PartyDisplay from "./components/PartyDisplay";
+import CandidatePage from "./components/CandidatePage";
+
 import NotFound from "./components/NotFound";
 import News from "./components/News"
 import Accordion from "./components/Accordion"
@@ -19,28 +23,56 @@ export default class App extends Component {
 
 
   render() {
+    // How to send props into routed components
+    // <Route
+    //   path="/"
+    //   render={(props) =>
+    //     <Game
+    //       handleGuess={this.handleGuess}
+    //       onRef={ref => (this.child = ref)}
+    //     />
+    //   }
+    // />
+
+      //JSX
+      return (
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <ProtectedRoute exact path="/" component={Home} />
+
+            {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
+            <Route
+              path="/:party/:candidateName"
+              render={(props) =>
+                <CandidatePage
+                  test="test Prop"
+                />
+              }
+            />
+            {/* <ProtectedRoute path="/:party" component={PartyDisplay} /> */}
+            <Route
+              path="/:party"
+              render={(props) =>
+                <PartyDisplay
+                  test="test Prop"
+                />
+              }
+            />
 
 
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute path="/news" component={News} />
+            <ProtectedRoute path="/accordion" component={Accordion} />
+            <ProtectedRoute path="/twitter" component={TwitterContainer} />
+            <ProtectedRoute path="/candidate" component={CandidatePage} />
+            <ProtectedRoute path="*" component={NotFound} />
 
-    //JSX
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/tweet" component={TweetCard} />
-          <Route path="/twitter" component={TwitterContainer} />
-          <Route path="/news" component={News} />
-          <Route path="/accordion" component={Accordion} />
-          <Route path="/candidate" component={CandidatePage} />
-          <Route path="*" component={NotFound} />
+          </Switch>
+        </Router>
 
-        </Switch>
-      </Router>
-
-    );
+      );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import logo from '../../united-states.png';
 
 
 
@@ -25,7 +26,7 @@ export default class Home extends Component {
       .then((response) => {
         const isAuthenticated = response.data.isAuthenticated;
         window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
-        this.props.history.push("/profile");
+        this.props.history.push("/");
       })
       .catch((error) => {
         this.setState({
@@ -49,7 +50,8 @@ export default class Home extends Component {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (isAuthenticated) {
-      return <Redirect to="/profile" />
+      console.log("hi");
+      return <Redirect to="/" />
     }
 
 
@@ -61,6 +63,7 @@ export default class Home extends Component {
         <div className="container">
           <div id="authLogo" className="row">
             <div className="col s12">
+              <img src={logo} height="200" />
               <h2>RE:DEM</h2>
             </div>
           </div>

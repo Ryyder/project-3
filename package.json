@@ -36,11 +36,8 @@
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
-<<<<<<< HEAD
     "react-twitter-embed": "^2.0.8",
-    "twit": "^2.2.11"
-=======
+    "twit": "^2.2.11",
     "validator": "^11.1.0"
->>>>>>> dev
   }
 }

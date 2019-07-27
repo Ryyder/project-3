@@ -16,7 +16,7 @@ class News extends Component {
 componentDidMount() {
   // this.setState({candidate: this.props.candidate})
   axios.get("/api/news/"+this.state.candidate).then((response)=>{
-    console.log("response", response.data)
+    // console.log("response", response.data)
     this.setState({ articles:response.data });
   }).catch(err => console.log(err))
     
@@ -34,7 +34,7 @@ componentDidMount() {
 
 
 render() {
-    console.log(this.state.articles)
+    // console.log(this.state.articles)
     return (
         <div className="cardDiv">{this.state.articles.map(article => {
           return (

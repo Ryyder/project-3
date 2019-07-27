@@ -8,16 +8,21 @@ class TwitterContainer extends React.Component {
 
   state = {
     tweets: [],
-    name: "JoeBiden"
+    name: ""
   }
 
   componentDidMount() {
-    axios.get("/api/tweets/" + this.state.name).then((response) => {
+    console.log("this.props.name = ", this.props.name)
+    this.getTweets()
+  }
+
+  getTweets = ()=>{
+    console.log("get Tweets this.props.name = ", this.props.name)
+    axios.get("/api/tweets/" + this.props.name).then((response) => {
       console.log("response", response)
       this.setState({ tweets: response.data });
     }).catch(err => console.log(err))
   }
-
   renderTweets = () => (
     this.state.tweets.map(tweet => (
       <TweetCard
@@ -28,7 +33,8 @@ class TwitterContainer extends React.Component {
   );
 
   render() {
-    console.log(this.state.tweets)
+    console.log("Twit Cont =  ", this.props.name)
+    console.log("Twit Cont State = ", this.state.name)
     return (
       <div className="container">
         <div className="twitterContainer">

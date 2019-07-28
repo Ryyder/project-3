@@ -40,4 +40,6 @@ render() {
 
 }
 
+
+
 export default News

@@ -24,7 +24,7 @@ class News extends Component {
   }
 
 
-}
+
 
 
 render() {
@@ -39,5 +39,7 @@ render() {
 }
 
 }
+
+
 
 export default News

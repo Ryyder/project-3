@@ -13,23 +13,17 @@ class News extends Component {
     candidate: this.props.candidate
   };
 
-componentDidMount() {
-  // this.setState({candidate: this.props.candidate})
-  axios.get("/api/news/"+this.state.candidate).then((response)=>{
-    // console.log("response", response.data)
-    this.setState({ articles:response.data });
-  }).catch(err => console.log(err))
-    
-  
+  componentDidUpdate(prevProps) {
+    if(this.props.candidate !== prevProps.candidate){
+      axios.get("/api/news/"+this.props.candidate).then((response)=>{
+        console.log("response", response.data)
+        this.setState({ articles:response.data });
+      }).catch(err => console.log(err))
+        
+    }
+  }
 
-// fetch(
-  //   "https://newsapi.org/v2/top-headlines?q="+this.state.candidate+"&apiKey=a7f110578c3c478b87d1d9c4c0477600"
-  // )
-  //   .then(res => res.json())
-  //   .then(data => data.articles)
-  //   .then(articles => {
-  //     this.setState({ articles });
-  //   });
+
 }
 
 

@@ -121,9 +121,9 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Latest News</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          {/* <Typography> */}
             <News candidate={props.news_name}/>
-          </Typography>
+          {/* </Typography> */}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>

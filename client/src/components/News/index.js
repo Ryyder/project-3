@@ -24,15 +24,15 @@ class News extends Component {
   }
 
 
-}
+
 
 
 render() {
     // console.log(this.state.articles)
     return (
-        <div className="cardDiv">{this.state.articles.map(article => {
+        <div className="cardDiv">{this.state.articles.map((article, id) => {
           return (
-            <Newscard imgurl={article.urlToImage} title={article.title} description={article.description} url={article.url}/> 
+            <Newscard key={id} imgurl={article.urlToImage} title={article.title} description={article.description} url={article.url}/> 
           );
         })}</div>
     );

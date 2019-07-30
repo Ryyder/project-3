@@ -66,6 +66,8 @@ export default class App extends Component {
             <ProtectedRoute path="/accordion" component={Accordion} />
             <ProtectedRoute path="/twitter" component={TwitterContainer} />
             <ProtectedRoute path="/candidate" component={CandidatePage} />
+
+            <ProtectedRoute path="/404" component={NotFound} />
             
             {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
             <ProtectedRoute
@@ -80,7 +82,6 @@ export default class App extends Component {
               handleCandidateSelect={this.handleCandidateSelect}
             />
 
-            <ProtectedRoute path="*" component={NotFound} />
 
           </Switch>
         </Router>

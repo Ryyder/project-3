@@ -21,6 +21,7 @@ class PartyDisplay extends React.Component {
 
         this.state = {
             selectedParty: fixedParty,
+            redirectMe: false,
             partyMembers: []
         };
         
@@ -29,17 +30,25 @@ class PartyDisplay extends React.Component {
         .then((res) => {
             console.log(res);
 
-            this.setState({ partyMembers: res.data });
+            
+            if(res.data.length === 0) {
+                this.setState( { redirectMe : true} )
+            } else {
+                this.setState({ partyMembers: res.data });
+            }
             
         }).catch(err => console.log(err));
     }
     
     
     render() {
-        // console.log(this.state.partyMembers);
+        console.log(this.state.partyMembers);
 
-        if(this.state.partyMembers.length === 0) {
-            return <Redirect to="/NotFound" />
+        // if(this.state.selectedParty !== "Democrats" || this.state.selectedParty !== "Republican") {
+        //     return <Redirect to="/404" />
+        // }
+        if(this.state.redirectMe){
+            return <Redirect to="/404" />
         }
 
         return(

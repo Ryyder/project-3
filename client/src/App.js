@@ -77,7 +77,7 @@ export default class App extends Component {
             <ProtectedRoute
               path="/:party"
               component={PartyDisplay}
-              handlePartySelect={this.handleCandidateSelect}
+              handleCandidateSelect={this.handleCandidateSelect}
             />
 
             <ProtectedRoute path="*" component={NotFound} />

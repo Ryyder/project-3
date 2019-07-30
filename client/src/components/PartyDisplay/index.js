@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 import Menu from "../Menu";
@@ -35,7 +36,11 @@ class PartyDisplay extends React.Component {
     
     
     render() {
-        console.log(this.state.partyMembers);
+        // console.log(this.state.partyMembers);
+
+        if(this.state.partyMembers.length === 0) {
+            return <Redirect to="/NotFound" />
+        }
 
         return(
             <React.Fragment>

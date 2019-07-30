@@ -20,7 +20,7 @@ class CandidatePage extends React.Component {
     }
     componentDidMount() {
         // Query DB for candidate ID
-        axios.get("/api/candidates/5d3c8855131a64ed67d6c2c0").then((response) =>{
+        axios.get("/api/candidates/5d3c8efe064f8b9e69d1fadf").then((response) =>{
             console.log("DB test");
             console.log(response.data)
             console.log("twitter = ", response.data.twitter)

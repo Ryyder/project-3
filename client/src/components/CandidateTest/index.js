@@ -29,6 +29,7 @@ class CandidatePage extends React.Component {
               news_name:  response.data.news_name,
               twitter: response.data.twitter
             });
+            // console.log("this.twitter", this.twitter);
         }).catch(err => console.log(err))
     }
     render() {

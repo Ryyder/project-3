@@ -10,39 +10,6 @@ import CandidateImage from "../CandidateImage";
 import CandidateInfo from "../CandidateInfo";
 // import "./style.css"
 class CandidatePage extends React.Component {
-<<<<<<< HEAD
-    state = {
-        name: "",
-        twitter: "",
-        news_name: "",
-        bio: "",
-        healthcare: "",
-        climate: "",
-        immigration: "",
-        economy: "",
-        foreign_policy: "",
-        summary: [],
-        party: ""
-    }
-    componentDidMount() {
-        // Query DB for candidate ID
-        axios.get("/api/candidates/5d424b31f65d7950c57b123d").then((response) =>{
-            this.setState({ 
-              summary: response.data.summary[0],
-              news_name:  response.data.news_name,
-              twitter: response.data.twitter,
-              party: response.data.party
-            });
-        }).catch(err => console.log(err))
-    }
-    render() {
-      const twitterContainer = (
-        <TwitterContainer 
-          name={this.state.twitter}
-        />
-      );
-      return (
-=======
   state = {
     name: "",
     twitter: "",
@@ -87,7 +54,6 @@ class CandidatePage extends React.Component {
       <React.Fragment>
         <Menu />
         <BackButton party={this.state.party} />
->>>>>>> dev
         <div className="container">
           <Title
             title={this.state.name}

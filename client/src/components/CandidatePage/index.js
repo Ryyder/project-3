@@ -3,8 +3,8 @@ import {withRouter} from 'react-router';
 import TwitterContainer from "../TwitterContainer";
 import Accordion from "../Accordion";
 import axios from "axios";
+import BackButton from "../BackButton"
 // import "./style.css"
-
 class CandidatePage extends React.Component {
     state = {
         name: "",
@@ -16,23 +16,21 @@ class CandidatePage extends React.Component {
         immigration: "",
         economy: "",
         foreign_policy: "",
-        summary: []
+        summary: [],
+        party: ""
     }
     componentDidMount() {
         // Query DB for candidate ID
         axios.get("/api/candidates/5d3c8efe064f8b9e69d1fadf").then((response) =>{
-            console.log("DB test");
-            console.log(response.data)
-            console.log("twitter = ", response.data.twitter)
             this.setState({ 
               summary: response.data.summary[0],
               news_name:  response.data.news_name,
-              twitter: response.data.twitter
+              twitter: response.data.twitter,
+              party: response.data.party
             });
         }).catch(err => console.log(err))
     }
     render() {
-      console.log("Candidate state.twitter = ", this.state.twitter);
       const twitterContainer = (
         <TwitterContainer 
           name={this.state.twitter}
@@ -40,6 +38,7 @@ class CandidatePage extends React.Component {
       );
       return (
         <div className="container">
+                  <BackButton party={this.state.party}/>
           <Accordion summary={this.state.summary} news_name={this.state.news_name}/>
           {this.state.twitter ? twitterContainer : 'Loading..'}
         </div>

@@ -11,11 +11,7 @@
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <!--
-    
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-     Compiled and minified CSS -->
+  <!--Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
@@ -30,7 +26,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>React App</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -49,35 +44,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 </body>
-
-<script sync src="https://platform.twitter.com/widgets.js"></script>
-
-<script>
-
-
-
-  window.onload = (function () {
-
-
-    var tweets = $(".tweet");
-
-    $(tweets).each(function (t, tweet) {
-
-      var id = $(this).attr('id');
-
-      twttr.widgets.createTweet(
-        id, tweet,
-        {
-          conversation: 'none',    // or all
-          cards: 'visible',  // or visible 
-          linkColor: '#cc0000', // default is blue
-          theme: 'light'    // or dark
-        });
-
-    });
-
-  });
-
-</script>
 
 </html>

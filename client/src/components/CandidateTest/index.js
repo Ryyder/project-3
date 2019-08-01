@@ -21,7 +21,7 @@ class CandidatePage extends React.Component {
     }
     componentDidMount() {
         // Query DB for candidate ID
-        axios.get("/api/candidates/5d3c8efe064f8b9e69d1fadf").then((response) =>{
+        axios.get("/api/candidates/5d424b31f65d7950c57b123d").then((response) =>{
             this.setState({ 
               summary: response.data.summary[0],
               news_name:  response.data.news_name,

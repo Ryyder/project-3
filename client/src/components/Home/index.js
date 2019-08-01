@@ -55,8 +55,8 @@ export default function Home() {
               <Link to={`/republican`}>
                 <Button variant="contained" color="secondary" className={classes.button}>
                 Republican
-              </Button><
-                /Link>
+              </Button>
+                </Link>
 
               
             </Paper>

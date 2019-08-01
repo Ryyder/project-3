@@ -39,10 +39,14 @@ class PartyDisplay extends React.Component {
             
         }).catch(err => console.log(err));
     }
+
+    componentDidMount() {
+        this.setState({ selectedParty: this.state.selectedParty })
+    }
     
     
     render() {
-        console.log(this.state.partyMembers);
+        // console.log(this.state.partyMembers);
 
         // if(this.state.selectedParty !== "Democrats" || this.state.selectedParty !== "Republican") {
         //     return <Redirect to="/404" />
@@ -68,7 +72,7 @@ class PartyDisplay extends React.Component {
                     <div className="col s12">
                         {this.state.partyMembers.length === 0 ? "Nothing Here" : 
                             this.state.partyMembers.map((candidate) => {     
-                                console.log("Entered Loop of List");                 
+                                // console.log("Entered Loop of List");                 
                                 // Return the element. Also pass key     
                                     return(
                                         <CandidateListItem 

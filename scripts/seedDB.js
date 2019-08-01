@@ -17,9 +17,9 @@ const candidateSeed = [
 		cur_position: "President of United States",
 		yrs_served: 3,
 		twitter:"realDonaldTrump",
-		route_name:"donaldtrump",
+		route_name:"donaldtrump2020",
 		news_name:"donald trump",
-		img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/606px-Donald_Trump_official_portrait.jpg",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg",
 		summary:
 			[
 				{
@@ -41,9 +41,9 @@ const candidateSeed = [
 		cur_position: "Retired",
 		yrs_served: 17,
 		twitter:"GovBillWeld",
-		route_name:"billweld",
+		route_name:"billweld2020",
 		news_name:"bill weld",
-		img_url: "https://en.wikipedia.org/wiki/Bill_Weld#/media/File:Bill_Weld_campaign_portrait.jpg",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bill_Weld_campaign_portrait.jpg",
 		summary:
 			[
 				{
@@ -65,9 +65,9 @@ const candidateSeed = [
 		cur_position: "Senator of Vermont",
 		yrs_served: 38,
 		twitter:"BernieSanders",
-		route_name:"berniesanders",
+		route_name:"berniesanders2020",
 		news_name:"bernie sanders",
-		img_url: "https://en.wikipedia.org/wiki/Bernie_Sanders#/media/File:Bernie_Sanders.jpg",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bernie_Sanders.jpg",
 		summary:
 			[
 				{
@@ -89,9 +89,9 @@ const candidateSeed = [
 		cur_position: "Senator of California",
 		yrs_served: 8,
 		twitter:"KamalaHarris",
-		route_name:"kamalaharris",
+		route_name:"kamalaharris2020",
 		news_name:"kamala harris",
-		img_url: "https://en.wikipedia.org/wiki/Kamala_Harris#/media/File:Senator_Harris_official_senate_portrait.jpg",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg",
 		summary:
 			[
 				{

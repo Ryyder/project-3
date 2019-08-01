@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Menu() {
+export default function Menu(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -131,7 +131,7 @@ export default function Menu() {
         })}
       >
         <div className={classes.drawerHeader} />
-        
+        {props.content}
       </main>
       <Drawer
         className={classes.drawer}

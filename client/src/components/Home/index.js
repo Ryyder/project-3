@@ -35,35 +35,40 @@ export default function Home() {
 
   return (
     <div>
-      <Menu />
-      <div className={classes.root}>
-        <Grid container spacing={3} className="gridDiv">
-          <Grid item xs={12} lg={6}>
-            <Paper className={classes.paper}>
-              <Carousel className="center" />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} lg={6}>
-            <Paper className={classes.paper}>
-              <Title title="Primaries" />
-              <Link to={`/democrats`}>
-                <Button variant="contained" color="primary" className={classes.button}>
-                  Democrat
+      <Menu
+        content={
+          <div className={classes.root}>
+            <Grid container spacing={3} className="gridDiv">
+              <Grid item xs={12} lg={6}>
+                <Paper className={classes.paper}>
+                  <Carousel className="center" />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} lg={6}>
+                <Paper className={classes.paper}>
+                  <Title title="Primaries" />
+                  <Link to={`/democrats`}>
+                    <Button variant="contained" color="primary" className={classes.button}>
+                      Democrat
                 </Button>
-              </Link>
+                  </Link>
 
-              <Link to={`/republican`}>
-                <Button variant="contained" color="secondary" className={classes.button}>
-                Republican
+                  <Link to={`/republican`}>
+                    <Button variant="contained" color="secondary" className={classes.button}>
+                      Republican
               </Button>
-                </Link>
+                  </Link>
 
-              
-            </Paper>
-          </Grid>
 
-        </Grid>
-      </div>
+                </Paper>
+              </Grid>
+
+            </Grid>
+          </div>
+        }
+
+      />
+
     </div>
   );
 

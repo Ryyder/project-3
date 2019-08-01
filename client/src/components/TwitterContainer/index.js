@@ -35,6 +35,7 @@ class TwitterContainer extends React.Component {
   render() {
     console.log("Twit Cont =  ", this.props.name)
     console.log("Twit Cont State = ", this.state.name)
+    console.log("Twitter Array: ", this.state.tweets)
     return (
       <div className="container">
         <div className="twitterContainer">

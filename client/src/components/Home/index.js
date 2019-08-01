@@ -15,6 +15,8 @@ export default class Home extends Component {
     //JSX
     return (
       <div>
+        <a href="/candidatetest" class="active">test</a>
+
         <h1>I am the Home Component</h1>
         <Logout />
       </div>

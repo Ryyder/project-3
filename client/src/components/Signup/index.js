@@ -17,6 +17,10 @@ export default class Signup extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
+    if(!email || !password) {
+      this.setState({errorMessage: "Invalid Email or Password"})
+      return
+    }
     axios({
       url: "/authentication/signup",
       method: "POST",
@@ -46,7 +50,10 @@ export default class Signup extends Component {
 
   render() {
 
-
+    let errorMessage = ""
+    if(this.state.errorMessage) {
+      errorMessage = "Check your login and try again"
+    }
 
     //JSX
     return (
@@ -78,7 +85,7 @@ export default class Signup extends Component {
         </div>
 
 
-        <p>{this.state.errorMessage}</p>
+        <p>{errorMessage}</p>
       </div>
     );
   }

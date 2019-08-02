@@ -3,6 +3,9 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 
 const LoginStrategy = new Strategy({ usernameField: "email" }, function (email, password, done) {
+  if (!email || !password) {
+    return done("Email or Password Not Valid", null);
+  }
   User.findOne({
     email
   }).lean().exec((err, user) => {

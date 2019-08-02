@@ -14,7 +14,12 @@ export default class Home extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     const { email, password } = this.state;
+    if(!email || !password) {
+      this.setState({errorMessage: "Invalid Email or Password"})
+      return
+    }
     axios({
       url: "/authentication/signin",
       method: "POST",
@@ -29,6 +34,7 @@ export default class Home extends Component {
         this.props.history.push("/");
       })
       .catch((error) => {
+        console.log("hey this is the error: " + error);
         this.setState({
           errorMessage: error.response.data.message
         });
@@ -47,6 +53,9 @@ export default class Home extends Component {
 
 
   render() {
+
+
+
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (isAuthenticated) {
@@ -54,6 +63,10 @@ export default class Home extends Component {
       return <Redirect to="/" />
     }
 
+    let errorMessage = ""
+    if(this.state.errorMessage) {
+      errorMessage = "Check your login and try again"
+    }
 
 
 
@@ -85,7 +98,7 @@ export default class Home extends Component {
             <div className="col s4"></div>
           </div>
         </div>
-        <p>{this.state.errorMessage}</p>
+        <p>{errorMessage}</p>
       </div>
 
     );

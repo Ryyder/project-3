@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -81,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Menu() {
+export default function Menu(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -131,7 +132,7 @@ export default function Menu() {
         })}
       >
         <div className={classes.drawerHeader} />
-        
+        {props.content}
       </main>
       <Drawer
         className={classes.drawer}
@@ -150,10 +151,12 @@ export default function Menu() {
         <Divider />
         <List>
           {/* {['Home', 'My Election Info', 'Perf', 'Drafts'].map((text, index) => ( */}
+            <Link to={`/`}>
           <ListItem button key="Home">
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
+          </Link>
           <ListItem button key="My Election Info">
             <ListItemIcon><VoteIcon /></ListItemIcon>
             <ListItemText primary="My Election Info" />

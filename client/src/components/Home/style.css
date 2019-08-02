@@ -1,0 +1,4 @@
+.gridDiv{
+  display: flex;
+  flex-wrap:wrap;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -150,10 +151,12 @@ export default function Menu(props) {
         <Divider />
         <List>
           {/* {['Home', 'My Election Info', 'Perf', 'Drafts'].map((text, index) => ( */}
+            <Link to={`/`}>
           <ListItem button key="Home">
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
+          </Link>
           <ListItem button key="My Election Info">
             <ListItemIcon><VoteIcon /></ListItemIcon>
             <ListItemText primary="My Election Info" />

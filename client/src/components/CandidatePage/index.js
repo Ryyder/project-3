@@ -9,7 +9,23 @@ import Menu from "../Menu";
 import Title from "../PageTitle";
 import CandidateImage from "../CandidateImage";
 import CandidateInfo from "../CandidateInfo";
-// import "./style.css"
+import { withStyles } from '@material-ui/styles';
+
+// import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    // padding: theme.spacing(2),
+    textAlign: 'center',
+    // color: theme.palette.text.secondary,
+  },
+});
+
 class CandidatePage extends React.Component {
   state = {
     redirectMe: false,
@@ -50,6 +66,8 @@ class CandidatePage extends React.Component {
       }
     }).catch(err => console.log(err))
   }
+
+
   render() {
     if (this.state.redirectMe) {
       return <Redirect to="/404" />
@@ -59,27 +77,55 @@ class CandidatePage extends React.Component {
         name={this.state.twitter}
       />
     );
+    const { classes } = this.props;
+
+
     return (
       <React.Fragment>
-        <Menu />
-        <BackButton party={this.state.party} />
-        <div className="container">
-          <Title
-            title={this.state.name}
-          />
-          <CandidateImage
-            image={this.state.image}
-          />
-          <CandidateInfo
-            position={this.state.position}
-            served={this.state.served}
-            age={this.state.age}
-          />
-          <Accordion summary={this.state.summary} news_name={this.state.news_name} />
-          {this.state.twitter ? twitterContainer : 'Loading..'}
-        </div>
+        <Menu
+          content={
+            <div>
+              <BackButton party={this.state.party} />
+              <div className="container">
+                <Title
+                  title={this.state.name}
+                />
+
+                <div className={classes.root}>
+                  <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                      <Paper className={classes.paper}>
+                        <CandidateImage
+                          image={this.state.image}
+                        />
+                        <CandidateInfo
+                          position={this.state.position}
+                          served={this.state.served}
+                          age={this.state.age}
+                        />
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={12} lg={6}>
+                      <Paper className={classes.paper}>
+                        <Accordion summary={this.state.summary} news_name={this.state.news_name} />
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={12} sm={12} lg={6}>
+                      <Paper className={classes.paper}>
+                        {this.state.twitter ? twitterContainer : 'Loading..'}
+
+                      </Paper>
+                    </Grid>
+                  </Grid>
+                </div>
+              </div>
+            </div>
+          }
+
+        />
+
       </React.Fragment>
     )
   }
 }
-export default withRouter(CandidatePage);
+export default withRouter(withStyles(styles)(CandidatePage));

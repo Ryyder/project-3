@@ -2,6 +2,7 @@ const express = require('express');
 /* const cookieParser = require('cookie-parser'); */
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require("cors");
 
 
 const passport = require("./passport");
@@ -11,16 +12,19 @@ const usersRouter = require('./routes/users');
 const twitterAPI = require('./routes/api/tweet');
 const API = require("./routes/api/news");
 const candidateAPI = require("./routes/api/candidates");
+const myinfoAPI = require("./routes/api/myinfo");
 /* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
+app.use(cors());
 // Use APIs
 app.use("/api", API);
 app.use('/api', twitterAPI);
 app.use('/api', candidateAPI);
+app.use("/api", myinfoAPI);
 
 app.use(logger('dev'));
 app.use(express.json());

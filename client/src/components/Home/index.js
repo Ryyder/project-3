@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout";
+import Modal from "../Modal";
 import Menu from "../Menu"
 import Title from "../PageTitle"
 import Button from '@material-ui/core/Button';

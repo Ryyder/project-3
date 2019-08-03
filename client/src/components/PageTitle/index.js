@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './style.css'
 
 export default class PageTitle extends Component{
 
@@ -22,7 +23,9 @@ export default class PageTitle extends Component{
         console.log("this.state: ", this.state.title)
         console.log("this.props: ", this.props.title)
         return(
-            <h1>{this.state.title}</h1>
+            <div className="title-div">
+                <h1>{this.state.title}</h1>
+            </div>
         );
     }
 }

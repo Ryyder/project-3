@@ -11,16 +11,25 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import "./style.css"
+import { autoPlay } from 'react-swipeable-views-utils';
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
+        textAlign: "center"
     },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    gridItemBox: {
+        textAlign: "center",
+        // paddingLeft: "auto",
+        // paddingRight: "auto", 
+        display:"flex",
+        justifyContent: "center"
+    }
 });
 
 class PartyDisplay extends React.Component {
@@ -88,7 +97,7 @@ class PartyDisplay extends React.Component {
 
                                 <div className="col s12">
                                     <div className={classes.root}>
-                                        <Grid container spacing={3}>
+                                        <Grid container spacing={3} >
                                             {this.state.partyMembers.length === 0 ? "Nothing Here" :
                                                 this.state.partyMembers.map((candidate) => {
                                                     // console.log("Entered Loop of List");                 
@@ -97,7 +106,7 @@ class PartyDisplay extends React.Component {
                                                         // <div className={classes.root}>
                                                         //     <Grid container spacing={3}>
                                                         <React.Fragment>
-                                                            <Grid item xs={12} sm={6}>
+                                                            <Grid className={classes.gridItemBox} item xs={12} sm={6}>
                                                                 {/* <Paper className={classes.paper}>xs=12</Paper> */}
                                                                 <CandidateListItem
                                                                     candidateProp={candidate}

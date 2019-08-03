@@ -10,17 +10,18 @@ import Typography from '@material-ui/core/Typography';
 
 
 import CandidateListItemStyles from "./style.css"
+import { textAlign } from '@material-ui/system';
 
 const useStyles = makeStyles({
     card: {
-        maxWidth: 345,
+        width: 345,
     },
     media: {
         height: 450,
-    },
+    }
 });
 
-export default function Newscard(props) {
+export default function CandidateListItem(props) {
     const classes = useStyles()
 
     return (

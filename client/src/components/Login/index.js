@@ -59,7 +59,6 @@ export default class Home extends Component {
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (isAuthenticated) {
-      console.log("hi");
       return <Redirect to="/" />
     }
 
@@ -98,6 +97,7 @@ export default class Home extends Component {
             <div className="col s4"></div>
           </div>
         </div>
+        
         <p>{errorMessage}</p>
       </div>
 

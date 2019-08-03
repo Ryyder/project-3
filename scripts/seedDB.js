@@ -16,9 +16,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "President of United States",
 		yrs_served: 3,
-		twitter:"realDonaldTrump",
-		route_name:"donaldtrump2020",
-		news_name:"donald trump",
+		twitter: "realDonaldTrump",
+		route_name: "donaldtrump2020",
+		news_name: "donald trump",
 		img_url: "https://upload.wikimedia.org/wikipedia/commons/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg",
 		summary:
 			[
@@ -40,9 +40,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "Retired",
 		yrs_served: 17,
-		twitter:"GovBillWeld",
-		route_name:"billweld2020",
-		news_name:"bill weld",
+		twitter: "GovBillWeld",
+		route_name: "billweld2020",
+		news_name: "bill weld",
 		img_url: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bill_Weld_campaign_portrait.jpg",
 		summary:
 			[
@@ -58,15 +58,61 @@ const candidateSeed = [
 
 	},
 	{
+		name: "Joe Biden",
+		age: 76,
+		party: "Democrats",
+		president_nominee: false,
+		cur_position: "Retired",
+		yrs_served: 44,
+		twitter: "JoeBiden",
+		route_name: "joebiden2020",
+		news_name: "joe biden",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Biden_2013.jpg/330px-Biden_2013.jpg",
+		summary:
+			[
+				{
+					bio: "'Joe Biden served as the Vice President of the United States from 2009 to 2017. He served in the United States Senate from 1973 until 2009 and made his second run for President of the United States in the 2008 presidential election as a Democrat. Biden was announced as Democratic presidential nominee Barack Obama's running mate on August 23, 2008, and was elected Vice President on November 4, 2008. Biden has been a strong proponent of globalization throughout his career, while acknowledging it increases economic inequality.[2] He supported the 1993 North American Free Trade Agreement.[3] During the Obama Administration, Biden was a strong advocate for the Trans-Pacific Partnership. [4]'",
+					healthcare: "'Biden has not endorsed Medicare for All but has announced support for a Public health insurance option that would allow Americans to buy into Medicare.[5][6][7]'",
+					immigration: "'On September 29, 2006, Biden voted for the Secure Fence Act, which authorized and partially funded the construction of 700 miles of fencing along the Mexican border.[54][55] Biden supported the Comprehensive Immigration Reform Act of 2007. He supports guest-worker visas. Biden also supports a path to citizenship.[56]'",
+					climate: "'Biden supports creating a new treaty on climate change requiring emissions reductions from developing countries, such as Brazil, India, China, and Mexico. He has also stated his support for investment in technologies to reduce greenhouse gas emissions, as well as creating a \"cap and trade\" system. Biden supports the promotion of renewable energy, including biodiesel fuels but not ethanol. On June 4, 2019, Joe Biden's campaign unveiled a climate policy plan aimed at getting the United States to eliminate net greenhouse gas emissions by 2050. Joe Biden also promised he'd re-enter the Paris Agreement on his first day in the White House.[43]'",
+					economy: "'The middle class isn’t a number — it’s a set of values. Owning your home. Sending your kids to college. Being able to save and get ahead. Across the country, too many families are being left behind. The next president needs to understand what the current one doesn’t: In America, no matter where you start in life, there should be no limit to what you can achieve. We need to rebuild the middle class, and this time make sure everybody comes along — regardless of race, gender, religion, sexual orientation, or disability.'",
+					foreign_policy: "'First and foremost, we must enforce existing trade laws and invest in the competitiveness of our workers and communities here at home, so that they compete on a level playing field. Then, we need to write the rules of the road for international trade through a modern, inclusive process—rules that protect our workers, safeguard the environment, uphold labor standards and middle-class wages, foster innovation, and take on big global challenges like corporate concentration, corruption, and climate change. If we don’t, other countries will write the rules for us.'"
+				}
+			]
+	},
+	{
+		name: "Elizabeth Warren",
+		age: 70,
+		party: "Democrats",
+		president_nominee: false,
+		cur_position: "Senator of Massachusetts",
+		yrs_served: 11,
+		twitter: "SenWarren",
+		route_name: "elizabethwarren2020",
+		news_name: "elizabeth warren",
+		img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg/330px-Elizabeth_Warren%2C_official_portrait%2C_114th_Congress.jpg",
+		summary:
+			[
+				{
+					bio: "Elizabeth Ann Warren is an American politician and former academic serving as the senior United States Senator from Massachusetts since 2013. Warren was formerly a law school professor specializing in bankruptcy law. A progressive, she has focused on consumer protection, economic opportunity, and the social safety net while in the Senate. In November 2012, Warren won the U.S. Senate election in Massachusetts, defeating incumbent Republican Scott Brown, to became the first female Senator from Massachusetts.",
+					healthcare: "'Warren was one of twenty-three Democratic senators to introduce the State Public Option Act, a bill that would authorize states to form a Medicaid buy-in program for all residents and thereby grant all denizens of the state the ability to buy into a state-driven Medicaid health insurance plan if they wished. Brian Schatz, a bill cosponsor, said the legislation would \"unlock each state’s Medicaid program to anyone who wants it, giving people a high-quality, low-cost public health insurance option\" and that its goal was \"to make sure that every single American has comprehensive health care coverage.\"[226]'",
+					immigration: "'On September 29, 2006, Biden voted for the Secure Fence Act, which authorized and partially funded the construction of 700 miles of fencing along the Mexican border.[54][55] Biden supported the Comprehensive Immigration Reform Act of 2007. He supports guest-worker visas. Biden also supports a path to citizenship.[56]'",
+					climate: "'Biden supports creating a new treaty on climate change requiring emissions reductions from developing countries, such as Brazil, India, China, and Mexico. He has also stated his support for investment in technologies to reduce greenhouse gas emissions, as well as creating a \"cap and trade\" system. Biden supports the promotion of renewable energy, including biodiesel fuels but not ethanol. On June 4, 2019, Joe Biden's campaign unveiled a climate policy plan aimed at getting the United States to eliminate net greenhouse gas emissions by 2050. Joe Biden also promised he'd re-enter the Paris Agreement on his first day in the White House.[43]'",
+					economy: "'The middle class isn’t a number — it’s a set of values. Owning your home. Sending your kids to college. Being able to save and get ahead. Across the country, too many families are being left behind. The next president needs to understand what the current one doesn’t: In America, no matter where you start in life, there should be no limit to what you can achieve. We need to rebuild the middle class, and this time make sure everybody comes along — regardless of race, gender, religion, sexual orientation, or disability.'",
+					foreign_policy: "'First and foremost, we must enforce existing trade laws and invest in the competitiveness of our workers and communities here at home, so that they compete on a level playing field. Then, we need to write the rules of the road for international trade through a modern, inclusive process—rules that protect our workers, safeguard the environment, uphold labor standards and middle-class wages, foster innovation, and take on big global challenges like corporate concentration, corruption, and climate change. If we don’t, other countries will write the rules for us.'"
+				}
+			]
+	},
+	{
 		name: "Sen. Bernie Sanders",
 		age: 77,
 		party: "Democrats",
 		president_nominee: false,
 		cur_position: "Senator of Vermont",
 		yrs_served: 38,
-		twitter:"BernieSanders",
-		route_name:"berniesanders2020",
-		news_name:"bernie sanders",
+		twitter: "BernieSanders",
+		route_name: "berniesanders2020",
+		news_name: "bernie sanders",
 		img_url: "https://upload.wikimedia.org/wikipedia/commons/d/de/Bernie_Sanders.jpg",
 		summary:
 			[
@@ -88,9 +134,9 @@ const candidateSeed = [
 		president_nominee: false,
 		cur_position: "Senator of California",
 		yrs_served: 8,
-		twitter:"KamalaHarris",
-		route_name:"kamalaharris2020",
-		news_name:"kamala harris",
+		twitter: "KamalaHarris",
+		route_name: "kamalaharris2020",
+		news_name: "kamala harris",
 		img_url: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Senator_Harris_official_senate_portrait.jpg",
 		summary:
 			[

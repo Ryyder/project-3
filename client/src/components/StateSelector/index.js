@@ -23,14 +23,16 @@ export default function ControlledOpenSelect() {
   const classes = useStyles();
   const [location, setLocation] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  //custom hook
   const [data, setData] = React.useState('');
+  //useEffect to only render stuff if the location is updated
   useEffect(() => {
+    
     if (location) {
       axios.get("http://localhost:3000/api/myinfo/" + location).then(res => {
         setData([...res.data]);
       });
     }
-    // removed the curly braces around location
 
     // adding location to the array tells useEffect to run the function when location is updated
   }, [location]);
@@ -124,6 +126,7 @@ export default function ControlledOpenSelect() {
           </FormControl>
         </form>
 
+        
         {data && <LocationDetails location={data[0]} />}
       </Grid>
     </div>

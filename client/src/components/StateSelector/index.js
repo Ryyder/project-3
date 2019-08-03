@@ -80,7 +80,7 @@ export default function ControlledOpenSelect() {
               <MenuItem value="Connecticut">Connecticut</MenuItem>
               <MenuItem value="Delaware">Delware</MenuItem>
               <MenuItem value="Florida">Florida</MenuItem>
-              <MenuItem value="Georgia">Hawaii</MenuItem>
+              <MenuItem value="Hawaii">Hawaii</MenuItem>
               <MenuItem value="Idaho">Idaho</MenuItem>
               <MenuItem value="Illinois">Illinois</MenuItem>
               <MenuItem value="Indiana">Indiana</MenuItem>
@@ -117,7 +117,7 @@ export default function ControlledOpenSelect() {
               <MenuItem value="Vermont">Vermont</MenuItem>
               <MenuItem value="Virginina">Virginia</MenuItem>
               <MenuItem value="Washington">Washington</MenuItem>
-              <MenuItem value="West Virginia">Louisiana</MenuItem>
+              <MenuItem value="West Virginia">West Virginia</MenuItem>
               <MenuItem value="Wisconsin">Wisconsin</MenuItem>
               <MenuItem value="Wyoming">Wyoming</MenuItem>
             </Select>

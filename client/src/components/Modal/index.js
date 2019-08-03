@@ -57,15 +57,14 @@ export default function SimpleModal(props) {
       >
 
         <div style={modalStyle} className={classes.paper}>
-          {/* <Grid
+          <Grid
             container
             direction="column"
             justify="center"
-            alignItems="center"> */}
-          {/* <h2 id="modal-title">MyInfo</h2> */}
-          {props.modalBtn}
+            alignItems="center">
+          <h5 id="modal-title">My Election Info</h5>
           <StateSelector />
-          {/* </Grid> */}
+          </Grid>
         </div>
 
       </Modal>

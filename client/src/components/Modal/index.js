@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -47,9 +47,8 @@ export default function SimpleModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        MyInfo
-      </button>
+      <div onClick={handleOpen}>
+        {props.modalBtn}      </div>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
@@ -58,14 +57,15 @@ export default function SimpleModal() {
       >
 
         <div style={modalStyle} className={classes.paper}>
-          <Grid
+          {/* <Grid
             container
             direction="column"
             justify="center"
-            alignItems="center">
-            <h2 id="modal-title">MyInfo</h2>
-            <StateSelector />
-          </Grid>
+            alignItems="center"> */}
+          {/* <h2 id="modal-title">MyInfo</h2> */}
+          {props.modalBtn}
+          <StateSelector />
+          {/* </Grid> */}
         </div>
 
       </Modal>

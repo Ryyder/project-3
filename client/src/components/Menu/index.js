@@ -21,6 +21,7 @@ import VoteIcon from '@material-ui/icons/HowToVote'
 import SettingsIcon from '@material-ui/icons/Settings'
 import ExitIcon from '@material-ui/icons/ExitToApp'
 import logo from '../../united-states.png';
+import Modal from '../Modal'
 
 
 const drawerWidth = 240;
@@ -157,10 +158,15 @@ export default function Menu(props) {
             <ListItemText primary="Home" />
           </ListItem>
           </Link>
-          <ListItem button key="My Election Info">
+          <Modal 
+            modalBtn={
+              <ListItem button key="My Election Info">
             <ListItemIcon><VoteIcon /></ListItemIcon>
             <ListItemText primary="My Election Info" />
           </ListItem>
+            }
+          />
+          
           <ListItem button key="Preferences">
             <ListItemIcon><SettingsIcon /></ListItemIcon>
             <ListItemText primary="Preferences" />

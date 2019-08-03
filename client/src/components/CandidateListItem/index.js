@@ -48,7 +48,7 @@ export default function CandidateListItem(props) {
         <Button size="small" color="primary">
             Share
             </Button>
-        <Button size="small" color="primary" target="_blank" href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
+        <Button size="small" color="primary" href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
         {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} onClick={() => console.log("test test est etwtejkjfdner")}> */}
         {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} > */}
             Learn More

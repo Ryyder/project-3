@@ -105,12 +105,12 @@ class CandidatePage extends React.Component {
                         />
                       </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={12} lg={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={6}>
                       <Paper className={classes.paper}>
                         <Accordion summary={this.state.summary} news_name={this.state.news_name} />
                       </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={12} lg={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={6}>
                       <Paper className={classes.paper}>
                         {this.state.twitter ? twitterContainer : 'Loading..'}
 

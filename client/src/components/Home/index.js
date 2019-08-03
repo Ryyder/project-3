@@ -39,7 +39,7 @@ export default function Home() {
       <Menu
         content={
           <div className={classes.root}>
-            <Grid container spacing={3} className="gridDiv">
+            <Grid container spacing={3}>
               <Grid item xs={12} lg={6}>
                 <Paper className={classes.paper}>
                   <Carousel className="center" />
@@ -61,6 +61,14 @@ export default function Home() {
                   </Link>
 
 
+                </Paper>
+              </Grid>
+              <Grid item xs={12} lg={6}>
+                <Paper className={classes.paper}>
+                  <Title title="My Election Info" />
+                  <button>                  
+                    <Modal modalBtn="Click here" />
+                  </button>
                 </Paper>
               </Grid>
 

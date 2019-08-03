@@ -8,20 +8,24 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
+import CandidateListItemStyles from "./style.css"
+import { textAlign } from '@material-ui/system';
+
 const useStyles = makeStyles({
     card: {
-        maxWidth: 345,
+        width: 345,
     },
     media: {
-        height: 140,
-    },
+        height: 450,
+    }
 });
 
-export default function Newscard(props) {
+export default function CandidateListItem(props) {
     const classes = useStyles()
 
     return (
-<Card className={classes.card}>
+<Card className={classes.card} raised={true}>
     <CardActionArea>
         <CardMedia
             className={classes.media}
@@ -44,7 +48,7 @@ export default function Newscard(props) {
         <Button size="small" color="primary">
             Share
             </Button>
-        <Button size="small" color="primary" href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
+        <Button size="small" color="primary" target="_blank" href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
         {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} onClick={() => console.log("test test est etwtejkjfdner")}> */}
         {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} > */}
             Learn More

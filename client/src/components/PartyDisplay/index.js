@@ -7,7 +7,30 @@ import Menu from "../Menu";
 import PageTitle from "../PageTitle";
 import CandidateListItem from "../CandidateListItem";
 
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import "./style.css"
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        textAlign: "center"
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+    gridItemBox: {
+        textAlign: "center",
+        // paddingLeft: "auto",
+        // paddingRight: "auto", 
+        display:"flex",
+        justifyContent: "center"
+    }
+});
 
 class PartyDisplay extends React.Component {
     constructor(props) {
@@ -55,6 +78,8 @@ class PartyDisplay extends React.Component {
             return <Redirect to="/404" />
         }
 
+        const { classes } = this.props;
+
         return (
             <React.Fragment>
                 <Menu
@@ -71,19 +96,44 @@ class PartyDisplay extends React.Component {
                                 </div>
 
                                 <div className="col s12">
-                                    {this.state.partyMembers.length === 0 ? "Nothing Here" :
-                                        this.state.partyMembers.map((candidate) => {
-                                            // console.log("Entered Loop of List");                 
-                                            // Return the element. Also pass key     
-                                            return (
-                                                <CandidateListItem
-                                                    candidateProp={candidate}
-                                                    handleCandidateSelect={this.props.handleCandidateSelect}
-                                                />
-                                                // candidate.name
-                                            )
-                                        }
-                                        )}
+                                    <div className={classes.root}>
+                                        <Grid container spacing={3} >
+                                            {this.state.partyMembers.length === 0 ? "Nothing Here" :
+                                                this.state.partyMembers.map((candidate) => {
+                                                    // console.log("Entered Loop of List");                 
+                                                    // Return the element. Also pass key     
+                                                    return (
+                                                        // <div className={classes.root}>
+                                                        //     <Grid container spacing={3}>
+                                                        <React.Fragment>
+                                                            <Grid className={classes.gridItemBox} item xs={12} sm={6}>
+                                                                {/* <Paper className={classes.paper}>xs=12</Paper> */}
+                                                                <CandidateListItem
+                                                                    candidateProp={candidate}
+                                                                    handleCandidateSelect={this.props.handleCandidateSelect}
+                                                                />
+                                                            </Grid>
+                                                            {/* <Grid item xs={6}>
+                                                            <Paper className={classes.paper}>xs=6</Paper>
+                                                        </Grid>
+                                                        <Grid item xs={6}>
+                                                            <Paper className={classes.paper}>xs=6</Paper>
+                                                        </Grid> 
+                                                        </Grid>
+                                                    </div>*/}                                </React.Fragment>
+
+
+                                                        // <CandidateListItem
+                                                        //     candidateProp={candidate}
+                                                        //     handleCandidateSelect={this.props.handleCandidateSelect}
+                                                        // />
+                                                        // candidate.name
+                                                        )
+                                            }
+                                            )}
+                                                    </Grid>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -94,5 +144,5 @@ class PartyDisplay extends React.Component {
     };
 };
 
-export default withRouter(PartyDisplay);
+export default withRouter(withStyles(styles)(PartyDisplay));
 // export default PartyDisplay;

@@ -46,32 +46,31 @@ export default function Home() {
                 </Paper>
               </Grid>
               <Grid item xs={12} lg={6}>
-                <Paper className={classes.paper}>
-                  <Title title="Primaries" />
-                  <Link to={`/democrats`}>
-                    <Button variant="contained" color="primary" className={classes.button}>
-                      Democrat
+                <Grid item spacing={3}>
+                  <Paper className={classes.paper}>
+                    <Title title="Primaries" />
+                    <Link to={`/democrats`}>
+                      <Button variant="contained" color="primary" className={classes.button}>
+                        Democrat
                 </Button>
-                  </Link>
+                    </Link>
 
-                  <Link to={`/republican`}>
-                    <Button variant="contained" color="secondary" className={classes.button}>
-                      Republican
+                    <Link to={`/republican`}>
+                      <Button variant="contained" color="secondary" className={classes.button}>
+                        Republican
               </Button>
-                  </Link>
-
-
-                </Paper>
+                    </Link>
+                  </Paper>
+                </Grid>
+                <Grid item spacing={3}>
+                  <Paper className={classes.paper}>
+                    <Title title="My Election Info" />
+                    <button>
+                      <Modal modalBtn="Click here" />
+                    </button>
+                  </Paper>
+                </Grid>
               </Grid>
-              <Grid item xs={12} lg={6}>
-                <Paper className={classes.paper}>
-                  <Title title="My Election Info" />
-                  <button>                  
-                    <Modal modalBtn="Click here" />
-                  </button>
-                </Paper>
-              </Grid>
-
             </Grid>
           </div>
         }

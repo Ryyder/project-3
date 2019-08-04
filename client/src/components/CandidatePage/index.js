@@ -93,8 +93,8 @@ class CandidatePage extends React.Component {
 
                 <div className={classes.root}>
                   <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                      <Paper className={classes.paper}>
+                    <Grid item xs={12} >
+                      <div className={classes.paper}>
                         <CandidateImage
                           image={this.state.image}
                         />
@@ -103,7 +103,7 @@ class CandidatePage extends React.Component {
                           served={this.state.served}
                           age={this.state.age}
                         />
-                      </Paper>
+                      </div>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={6}>
                       <Paper className={classes.paper}>

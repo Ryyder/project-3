@@ -19,7 +19,12 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  candidate:{
+    textAlign: 'center',
+  },
   paper: {
+    boxShadow: '5px 10px 8px #888888',
+
     // padding: theme.spacing(2),
     textAlign: 'center',
     // color: theme.palette.text.secondary,
@@ -94,7 +99,7 @@ class CandidatePage extends React.Component {
                 <div className={classes.root}>
                   <Grid container spacing={3}>
                     <Grid item xs={12} >
-                      <div className={classes.paper}>
+                      <div className={classes.candidate}>
                         <CandidateImage
                           image={this.state.image}
                         />

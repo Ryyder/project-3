@@ -1,7 +1,7 @@
 {
-  "name": "mern",
-  "version": "0.1.0",
-  "description": "Mern Demo",
+  "name": "Vot:Ed",
+  "version": "1.0.0",
+  "description": "Vot:Ed- Voter Education",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {

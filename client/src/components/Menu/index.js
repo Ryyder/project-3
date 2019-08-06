@@ -47,6 +47,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: "center"
+  },
+  link: {
+    color: "black"
   },
   hide: {
     display: 'none',
@@ -113,7 +117,7 @@ export default function Menu(props) {
       >
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.title}>
-            <img src={logo} height="50" />
+            <img src={logo} height="50"/>
           </Typography>
           <IconButton
             color="inherit"
@@ -155,21 +159,21 @@ export default function Menu(props) {
             <Link to={`/`}>
           <ListItem button key="Home">
             <ListItemIcon><HomeIcon /></ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Home" className={classes.link}/>
           </ListItem>
           </Link>
           <Modal 
             modalBtn={
               <ListItem button key="My Election Info">
             <ListItemIcon><VoteIcon /></ListItemIcon>
-            <ListItemText primary="My Election Info" />
+            <ListItemText primary="My Election Info" className={classes.link}/>
           </ListItem>
             }
           />
           
-          <ListItem button key="Preferences">
+          <ListItem button key="Preferences" >
             <ListItemIcon><SettingsIcon /></ListItemIcon>
-            <ListItemText primary="Preferences" />
+            <ListItemText primary="Preferences" className={classes.link}/>
           </ListItem>
         </List>
         <Divider />
@@ -177,7 +181,7 @@ export default function Menu(props) {
           {/* {['All mail', 'Trash', 'Spam'].map((text, index) => ( */}
           <ListItem button key="Log Out" onClick={handleLogout}>
             <ListItemIcon><ExitIcon /></ListItemIcon>
-            <ListItemText primary="Log Out" />
+            <ListItemText primary="Log Out" className={classes.link}/>
           </ListItem>
         </List>
       </Drawer>

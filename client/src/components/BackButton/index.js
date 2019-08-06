@@ -7,6 +7,6 @@ import "./style.css"
 
 export default function ButtonRouter(props) {
   return (
-      <Link to={`/${props.party}`}><BackButton className="backBtn" /></Link>
+      <Link to={`/${props.party}`}><BackButton className="backBtn"/></Link>
   );
 }

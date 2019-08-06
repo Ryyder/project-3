@@ -18,7 +18,12 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  candidate:{
+    textAlign: 'center',
+  },
   paper: {
+    boxShadow: '5px 10px 8px #888888',
+
     // padding: theme.spacing(2),
     textAlign: 'center',
     // color: theme.palette.text.secondary,
@@ -157,8 +162,8 @@ class CandidatePage extends React.Component {
                     <Favorite className={favoriteClasses} onClick={this.handleLike} />                 
                   <h1>{this.state.likes}</h1>
                   <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                      <Paper className={classes.paper}>
+                    <Grid item xs={12} >
+                      <div className={classes.candidate}>
                         <CandidateImage
                           image={this.state.image}
                         />
@@ -167,7 +172,7 @@ class CandidatePage extends React.Component {
                           served={this.state.served}
                           age={this.state.age}
                         />
-                      </Paper>
+                      </div>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={6}>
                       <Paper className={classes.paper}>

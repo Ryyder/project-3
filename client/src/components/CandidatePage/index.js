@@ -9,7 +9,7 @@ import Menu from "../Menu";
 import Title from "../PageTitle";
 import CandidateImage from "../CandidateImage";
 import CandidateInfo from "../CandidateInfo";
-import { withStyles, makeStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/styles';
 import Favorite from "@material-ui/icons/Favorite";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -67,7 +67,7 @@ class CandidatePage extends React.Component {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"))
     let self = this
     // Query DB for candidate ID
-    axios.get(`http://localhost:3001/api/candidates/name?route_name=${this.props.match.params.candidateName}`).then((response) => {
+    axios.get(`/api/candidates/name?route_name=${this.props.match.params.candidateName}`).then((response) => {
       if (!response.data) {
         this.setState({ redirectMe: true })
       } else {
@@ -104,7 +104,7 @@ class CandidatePage extends React.Component {
     axios(
       {
         method: "post",
-        url: `http://localhost:3001/api/favorite/updatelike/candidate/${this.state.id}/user/${userInfo._id}`,
+        url: `/api/favorite/updatelike/candidate/${this.state.id}/user/${userInfo._id}`,
       }
     )
       .then(function (response) {
@@ -121,12 +121,6 @@ class CandidatePage extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-
-    /* axios.put(`http://localhost:3001/api/candidates/${this.state.id}`)
-    .then((res) => {
-      console.log(res);
-    }) */
-
   }
 
 
@@ -159,8 +153,6 @@ class CandidatePage extends React.Component {
                 />
 
                 <div className={classes.root}>
-                    <Favorite className={favoriteClasses} onClick={this.handleLike} />                 
-                  <h1>{this.state.likes}</h1>
                   <Grid container spacing={3}>
                     <Grid item xs={12} >
                       <div className={classes.candidate}>
@@ -172,6 +164,8 @@ class CandidatePage extends React.Component {
                           served={this.state.served}
                           age={this.state.age}
                         />
+                        <Favorite className={favoriteClasses} onClick={this.handleLike}></Favorite>
+                        <p>Popularity: {this.state.likes}</p>                 
                       </div>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={6}>

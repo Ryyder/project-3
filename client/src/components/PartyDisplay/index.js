@@ -8,10 +8,8 @@ import PageTitle from "../PageTitle";
 import CandidateListItem from "../CandidateListItem";
 
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import "./style.css"
-import { autoPlay } from 'react-swipeable-views-utils';
 
 const styles = theme => ({
     root: {
@@ -69,11 +67,7 @@ class PartyDisplay extends React.Component {
 
 
     render() {
-        // console.log(this.state.partyMembers);
-
-        // if(this.state.selectedParty !== "Democrats" || this.state.selectedParty !== "Republican") {
-        //     return <Redirect to="/404" />
-        // }
+        
         if (this.state.redirectMe) {
             return <Redirect to="/404" />
         }

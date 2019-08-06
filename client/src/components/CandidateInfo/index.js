@@ -18,8 +18,7 @@ export default class CandidateInfo extends Component {
   }
 
   render() {
-    // console.log("this.state: ", this.state.image)
-    // console.log("this.props: ", this.props.image)
+    
     return (
       <div>
         <p>Current Position: {this.state.position}</p>

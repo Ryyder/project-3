@@ -31,22 +31,15 @@ module.exports = {
   },
   findByCandidateName: function (req, res) {
     let result = {};
-    //console.log(req);
     db.Candidate
       .findOne(req.query)
       .then(dbModel => {
         result = {model: dbModel, favorites: []};
-        console.log("console log start");
-        console.log("..." + dbModel._id.toString());
-        console.log(dbModel);
         db.Favorite.find({candidateID: dbModel._id.toString()})
         .then(favorites => {
-          console.log("favorites");
-          console.log(favorites);
           res.json({model: dbModel, favorites: favorites})
         })
         .catch((err) => {
-            console.log(err);
             res.json({model: dbModel, favorites: []})
           
         })

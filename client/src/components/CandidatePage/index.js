@@ -67,7 +67,7 @@ class CandidatePage extends React.Component {
     let userInfo = JSON.parse(localStorage.getItem("userInfo"))
     let self = this
     // Query DB for candidate ID
-    axios.get(`http://localhost:3001/api/candidates/name?route_name=${this.props.match.params.candidateName}`).then((response) => {
+    axios.get(`/api/candidates/name?route_name=${this.props.match.params.candidateName}`).then((response) => {
       if (!response.data) {
         this.setState({ redirectMe: true })
       } else {
@@ -104,7 +104,7 @@ class CandidatePage extends React.Component {
     axios(
       {
         method: "post",
-        url: `http://localhost:3001/api/favorite/updatelike/candidate/${this.state.id}/user/${userInfo._id}`,
+        url: `/api/favorite/updatelike/candidate/${this.state.id}/user/${userInfo._id}`,
       }
     )
       .then(function (response) {
@@ -122,10 +122,6 @@ class CandidatePage extends React.Component {
         console.log(error);
       });
 
-    /* axios.put(`http://localhost:3001/api/candidates/${this.state.id}`)
-    .then((res) => {
-      console.log(res);
-    }) */
 
   }
 

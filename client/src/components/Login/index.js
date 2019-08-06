@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import FavoriteButton from "../FavoriteButton";
 import logo from '../../united-states.png';
 
 

@@ -8,7 +8,7 @@ import Menu from "../Menu";
 import Title from "../PageTitle";
 import CandidateImage from "../CandidateImage";
 import CandidateInfo from "../CandidateInfo";
-// import "./style.css"
+
 class CandidatePage extends React.Component {
   state = {
     name: "",

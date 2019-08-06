@@ -6,6 +6,7 @@ mongoose.connect(
   "mongodb://localhost/authentication", {useNewUrlParser: true}
 );
 
+//each states election info
 const myinfoSeed = [
   {
     state: "Alabama",

@@ -13,6 +13,7 @@ const candidateSchema = new Schema({
 	president_nominee: { type: Boolean, required: true },
 	cur_position: { type: String, required: true },
     yrs_served: { type: Number, required: true },
+    likes: { type: Number, default: 0 },
     // Documentation of updating/pushing with this schema declaration
     //  https://stackoverflow.com/questions/19695058/how-to-define-object-in-array-in-mongoose-schema-correctly-with-2d-geo-index
     summary: { type : Array , "default" : [] }

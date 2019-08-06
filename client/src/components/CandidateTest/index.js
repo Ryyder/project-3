@@ -45,6 +45,7 @@ class CandidatePage extends React.Component {
     }).catch(err => console.log(err))
   }
   render() {
+    
     const twitterContainer = (
       <TwitterContainer
         name={this.state.twitter}

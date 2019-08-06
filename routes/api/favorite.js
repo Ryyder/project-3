@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const favoriteController = require("../../controllers/favoriteController");
 
+//favorite api routes
 router.route("/favorite")
   .get(favoriteController.findAll)
 

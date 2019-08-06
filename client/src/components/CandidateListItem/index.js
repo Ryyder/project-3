@@ -26,7 +26,7 @@ export default function CandidateListItem(props) {
 
     return (
 <Card className={classes.card} raised={true}>
-    <CardActionArea>
+    <CardActionArea href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
         <CardMedia
             className={classes.media}
             image={props.candidateProp.img_url}
@@ -44,16 +44,6 @@ export default function CandidateListItem(props) {
             </Typography>
         </CardContent>
     </CardActionArea>
-    <CardActions>
-        <Button size="small" color="primary">
-            Share
-            </Button>
-        <Button size="small" color="primary" href={"/" + props.candidateProp.party + "/" + props.candidateProp.route_name}>
-        {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} onClick={() => console.log("test test est etwtejkjfdner")}> */}
-        {/* <Button size="small" color="primary" target="_blank" href={"/candidates/" + props.candidateProp.route_name} > */}
-            Learn More
-            </Button>
-    </CardActions>
 </Card>
     )
 }

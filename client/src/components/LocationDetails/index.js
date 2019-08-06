@@ -88,20 +88,5 @@ export default ({ location }) => {
 
   )
 
-
-
-  /* return (
-    <ul>
-      <li>
-        {location.election_date}
-      </li>
-
-      <li>
-        {location.mail_voting}
-      </li>
-      <li>
-        {location.early_voting}
-      </li>
-    </ul>) */
 }
 

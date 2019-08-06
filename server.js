@@ -13,6 +13,7 @@ const twitterAPI = require('./routes/api/tweet');
 const API = require("./routes/api/news");
 const candidateAPI = require("./routes/api/candidates");
 const myinfoAPI = require("./routes/api/myinfo");
+const favoriteAPI = require("./routes/api/favorite");
 /* const googleRouter = require("./routes/google"); */
 const PORT = process.env.PORT || 3001;
 
@@ -25,6 +26,7 @@ app.use("/api", API);
 app.use('/api', twitterAPI);
 app.use('/api', candidateAPI);
 app.use("/api", myinfoAPI);
+app.use("/api", favoriteAPI);
 
 app.use(logger('dev'));
 app.use(express.json());

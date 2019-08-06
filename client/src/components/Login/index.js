@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import FavoriteButton from "../FavoriteButton";
 import logo from '../../united-states.png';
 
 
@@ -29,7 +30,9 @@ export default class Home extends Component {
       }
     })
       .then((response) => {
+        console.log(response.data);
         const isAuthenticated = response.data.isAuthenticated;
+        window.localStorage.setItem("userInfo", JSON.stringify(response.data));
         window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
         this.props.history.push("/");
       })
@@ -97,7 +100,6 @@ export default class Home extends Component {
             <div className="col s4"></div>
           </div>
         </div>
-        
         <p>{errorMessage}</p>
       </div>
 

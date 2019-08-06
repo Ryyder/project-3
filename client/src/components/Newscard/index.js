@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function TitlebarGridList(props) {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
@@ -35,7 +34,7 @@ export default function TitlebarGridList(props) {
           <ListSubheader component="div">December</ListSubheader>
         </GridListTile> */}
         {props.article.map((article,id) => (
-          <GridListTile key={article.img}>
+          <GridListTile key={article.publishedAt}>
             <img src={article.urlToImage} alt={article.title} />
             <GridListTileBar
               title={article.title}

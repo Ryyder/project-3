@@ -13,10 +13,6 @@ const API = require("./routes/api/news");
 const candidateAPI = require("./routes/api/candidates");
 const myinfoAPI = require("./routes/api/myinfo");
 const favoriteAPI = require("./routes/api/favorite");
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -33,10 +29,6 @@ app.use("/api", favoriteAPI);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
@@ -46,10 +38,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/authentication', usersRouter);
 app.use('/', indexRouter);
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 
 
 

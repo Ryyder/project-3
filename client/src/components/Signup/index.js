@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import Container from '@material-ui/core/Container';
 import "./style.css"
 import axios from "axios";
-import logo from '../../united-states.png';
+import logo from '../../VotEd_Logo_lg.png';
 
 
 export default class Signup extends Component {

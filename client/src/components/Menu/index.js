@@ -20,7 +20,7 @@ import HomeIcon from '@material-ui/icons/Home'
 import VoteIcon from '@material-ui/icons/HowToVote'
 import SettingsIcon from '@material-ui/icons/Settings'
 import ExitIcon from '@material-ui/icons/ExitToApp'
-import logo from '../../united-states.png';
+import logo from '../../VotEd_Logo_lg.png';
 import Modal from '../Modal'
 
 
@@ -171,10 +171,10 @@ export default function Menu(props) {
             }
           />
           
-          <ListItem button key="Preferences" >
+          {/* <ListItem button key="Preferences" >
             <ListItemIcon><SettingsIcon /></ListItemIcon>
             <ListItemText primary="Preferences" className={classes.link}/>
-          </ListItem>
+          </ListItem> */}
         </List>
         <Divider />
         <List>

@@ -1,10 +1,19 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 const Schema = mongoose.Schema;
  
+//user schema
 const UserSchema = new Schema({
   username: String,
   password: String,
-  email: String,
+  email: {
+    type: String,
+    validate: {
+      validator: validator.isEmail,
+      message: '{VALUE} is not a valid email',
+      isAsync: false
+    }
+  },
   bio: String,
   location: String
 });

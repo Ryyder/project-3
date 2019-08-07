@@ -12,17 +12,24 @@ const candidatesController = require("../../controllers/candidatesController");
 //   .get(booksController.findById)
 //   .put(booksController.update)
 //   .delete(booksController.remove);
-  
-  // Matches with "/api/candidates"
-  router.route("/")
-    .get(candidatesController.findAll)
-    .post(candidatesController.create);
-  
-  // Matches with "/api/candidates/:id"
-  router
-    .route("/:id")
-    .get(candidatesController.findById)
-    .put(candidatesController.update)
-    .delete(candidatesController.remove);
+
+router.route("/candidates/name")
+  .get(candidatesController.findByCandidateName)
+
+// Matches with "/api/candidates"
+router.route("/candidates")
+  .get(candidatesController.findAll)
+// .then(({data}) => res.send(data))
+// .catch(err => res.status(422).json(err));
+// .post(candidatesController.create);
+
+// Matches with "/api/candidates/:id"
+router
+  .route("/candidates/:id")
+  .get(candidatesController.findById)
+  .put(candidatesController.update)
+// .delete(candidatesController.remove);
+
+
 
 module.exports = router;

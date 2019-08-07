@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
+import logo from '../../VotEd_Logo_lg.png';
 
 
-export default class Login extends Component {
+
+export default class Home extends Component {
   state = {
     email: "",
     password: "",
@@ -12,7 +14,14 @@ export default class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
+    //blank email or password validation
     const { email, password } = this.state;
+    if(!email || !password) {
+      this.setState({errorMessage: "Invalid Email or Password"})
+      return
+    }
+    //send our user's email and password to the db
     axios({
       url: "/authentication/signin",
       method: "POST",
@@ -21,18 +30,25 @@ export default class Login extends Component {
         password
       }
     })
-    .then((response) => {
-      const isAuthenticated = response.data.isAuthenticated;
-      window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
+      .then((response) => {
+    
+        //tells us the user is authenticated on the backend
+        const isAuthenticated = response.data.isAuthenticated;
+        //store user info in local storage
+        window.localStorage.setItem("userInfo", JSON.stringify(response.data));
+        //store user is authenticated in local storage
+        window.localStorage.setItem("isAuthenticated", isAuthenticated);
+        //redirect user to the root page
+        this.props.history.push("/");
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.response.data.message
+        });
       });
-    });
   };
 
+  //detecting and outputting keypress on forms
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -40,26 +56,58 @@ export default class Login extends Component {
     });
   };
 
+
+
+
+
   render() {
+
+
+
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
-    if(isAuthenticated) {
-      return <Redirect to = "/profile" />
+    if (isAuthenticated) {
+      return <Redirect to="/" />
     }
+
+    let errorMessage = ""
+    if(this.state.errorMessage) {
+      errorMessage = "Check your login and try again"
+    }
+
 
 
     //JSX
     return (
       <div>
-        <h2>Login Component</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="email" onChange={this.handleChange} />
-          <input type="password" name="password" onChange={this.handleChange} />
+        <div className="container">
+          <div id="authLogo" className="row">
+            <div className="col s12">
+              <img src={logo} height="200" />
+              <h2>RE:DEM</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s4"></div>
+            <div className="col s4">
+              <form onSubmit={this.handleSubmit}>
+                <label for="email">Email Address</label>
 
-          <button>Login</button>
-        </form>
-        <p>{this.state.errorMessage}</p>
+                <input type="email" name="email" onChange={this.handleChange} />
+                <label for="password">Password</label>
+
+                <input type="password" name="password" onChange={this.handleChange} />
+
+                <button>Login</button>
+                <button onClick={() => { this.props.history.push("/signup") }}>Sign Up</button>
+              </form>
+            </div>
+            <div className="col s4"></div>
+          </div>
+        </div>
+        <p>{errorMessage}</p>
       </div>
+
     );
   }
 }

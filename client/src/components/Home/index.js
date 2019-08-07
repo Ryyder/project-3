@@ -1,68 +1,104 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import Logout from "../Logout";
+import Modal from "../Modal";
+import Menu from "../Menu"
+import Title from "../PageTitle"
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Carousel from "../Carousel"
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import "./style.css"
+import { grey } from "@material-ui/core/colors";
 
 
-export default class Home extends Component {
-  state = {
-    email: "",
-    password: "",
-    errorMessage: ""
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    axios({
-      url: "/authentication/signin",
-      method: "POST",
-      data: {
-        email,
-        password
-      }
-    })
-    .then((response) => {
-      const isAuthenticated = response.data.isAuthenticated;
-      window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
-      });
-    });
-  };
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-
-
-  render() {
-    const isAuthenticated = window.localStorage.getItem("isAuthenticated");
-
-    if(isAuthenticated) {
-      return <Redirect to = "/profile" />
-    }
-
-
-    //JSX
-    return (
-      <div>
-        <h2>Home Component</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="email" onChange={this.handleChange} />
-          <input type="password" name="password" onChange={this.handleChange} />
-
-          <button>Login</button>
-          <button onClick={() => {this.props.history.push("/signup")}}>Sign Up</button>
-        </form>
-        <p>{this.state.errorMessage}</p>
-      </div>
-    );
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(7),
+    fontSize: "2.8rem",
+  },
+  input: {
+    display: 'none',
+  },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+  partyChoices: {
+    textAlign: 'center',
+  },
+  blankSpace:{
+    height: "10vh",
+  },
+  electionInfoDiv:{
+    textAlign: "center",
+    color: "grey",
   }
+
+}));
+
+export default function Home() {
+  const classes = useStyles();
+
+
+
+  return (
+    <div>
+      <Menu
+        content={
+          <div className={classes.root}>
+            <Grid container spacing={3}>
+              {/* <Grid item xs={12} lg={6}>
+                <Paper className={classes.paper}>
+                <Carousel className="center" />
+                </Paper>
+              </Grid> */}
+              <Grid item xs={12} lg={12}>
+                <Grid item spacing={5}>
+                  <Title title="Presidential Primaries" />
+                  {/* <Paper className={classes.paper}> */}
+                  <div className={classes.blankSpace}></div>
+                  <div className={classes.partyChoices}>
+                    <Link to={`/democrats`}>
+                      <Button variant="contained" color="primary" className={classes.button}>
+                        Democrat
+                      </Button>
+                    </Link>
+
+                    <Link to={`/republican`}>
+                      <Button variant="contained" color="secondary" className={classes.button}>
+                        Republican
+                      </Button>
+                    </Link>
+                    </div>
+                  {/* </Paper> */}
+                </Grid>
+                <Grid item spacing={3}>
+                  {/* <Paper className={classes.paper}> */}
+                    {/* <Title title="My Election Info" /> */}
+                    <div className={classes.electionInfoDiv}>
+                    <h2>State Election Info</h2>
+                    {/* <button> */}
+                    <Button variant="contained" href="#" >
+                      <Modal modalBtn="Primary Dates" />
+                    </Button>
+                    {/* </button> */}
+                    </div>
+                  {/* </Paper> */}
+                </Grid>
+              </Grid>
+            </Grid>
+          </div>
+        }
+
+      />
+
+    </div>
+  );
+
 }

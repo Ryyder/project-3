@@ -14,7 +14,7 @@ const API = require("./routes/api/news");
 const candidateAPI = require("./routes/api/candidates");
 const myinfoAPI = require("./routes/api/myinfo");
 const favoriteAPI = require("./routes/api/favorite");
-/* const googleRouter = require("./routes/google"); */
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -31,7 +31,7 @@ app.use("/api", favoriteAPI);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-/* app.use(cookieParser()); */
+
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
@@ -41,7 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/authentication', usersRouter);
 app.use('/', indexRouter);
-//app.use('/google', googleRouter);
+
 
 
 

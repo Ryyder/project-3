@@ -3,9 +3,6 @@ const db = require("../models");
 // Defining methods for the MyinfoController
 module.exports = {
   findAll: function(req, res) {
-    console.log("trying to find all Myinfo");
-    // console.log(req);
-    console.log(req.query);
     db.Myinfo
       .find(req.query)
       // .sort({ date: -1 })
@@ -13,7 +10,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   find: function(req, res) {
-    console.log("this is req.params.state: " + req.params.state);
+    //query by state
     db.Myinfo
       .find({state: req.params.state})
       .then(dbModel => res.json(dbModel))

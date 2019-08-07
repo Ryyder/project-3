@@ -15,11 +15,13 @@ export default class Home extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    //blank email or password validation
     const { email, password } = this.state;
     if(!email || !password) {
       this.setState({errorMessage: "Invalid Email or Password"})
       return
     }
+    //send our user's email and password to the db
     axios({
       url: "/authentication/signin",
       method: "POST",
@@ -29,20 +31,24 @@ export default class Home extends Component {
       }
     })
       .then((response) => {
-        console.log(response.data);
+    
+        //tells us the user is authenticated on the backend
         const isAuthenticated = response.data.isAuthenticated;
+        //store user info in local storage
         window.localStorage.setItem("userInfo", JSON.stringify(response.data));
-        window.localStorage.setItem("isAuthenticated", isAuthenticated); //save to local storage
+        //store user is authenticated in local storage
+        window.localStorage.setItem("isAuthenticated", isAuthenticated);
+        //redirect user to the root page
         this.props.history.push("/");
       })
       .catch((error) => {
-        console.log("hey this is the error: " + error);
         this.setState({
           errorMessage: error.response.data.message
         });
       });
   };
 
+  //detecting and outputting keypress on forms
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({

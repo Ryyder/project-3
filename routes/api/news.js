@@ -18,7 +18,7 @@ let name = //retrieve name from DB
 router.get("/news/:name", (req, res) => {
   console.log(req.url)
   axios
-    .get("https://newsapi.org/v2/everything?q="+req.params.name+"&apiKey=a7f110578c3c478b87d1d9c4c0477600", )
+    .get("https://newsapi.org/v2/everything?q="+req.params.name+"&apiKey="+ process.env.MY_API_KEY, )
     // if(res.data.totalResults === 0){
     //   axios
       // .get("https://newsapi.org/v2/everything?q=inslee&apiKey=a7f110578c3c478b87d1d9c4c0477600", { params: req.query })

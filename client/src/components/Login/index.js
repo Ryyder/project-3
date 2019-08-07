@@ -84,7 +84,6 @@ export default class Home extends Component {
           <div id="authLogo" className="row">
             <div className="col s12">
               <img src={logo} height="200" />
-              <h2>RE:DEM</h2>
             </div>
           </div>
           <div className="row">

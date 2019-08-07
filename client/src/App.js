@@ -66,11 +66,6 @@ export default class App extends Component {
             <ProtectedRoute path="/twitter" component={TwitterContainer} />
             <ProtectedRoute path="/menu" component={Menu} />
             <ProtectedRoute path="/candidate" component={CandidatePage} />
-
-            <ProtectedRoute path="/404" component={NotFound} />
-            <ProtectedRoute path="/candidatetest" component={CandidateTest} />
-            
-            {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
             <ProtectedRoute
               path="/:party/:candidateName"
               component={CandidatePage}
@@ -82,6 +77,11 @@ export default class App extends Component {
               component={PartyDisplay}
               handleCandidateSelect={this.handleCandidateSelect}
             />
+            <ProtectedRoute path="/404" component={NotFound} />
+            <ProtectedRoute path="/candidatetest" component={CandidateTest} />
+            
+            {/* <ProtectedRoute path="/:party/:candidateName" component={CandidatePage} /> */}
+            
 
 
           </Switch>

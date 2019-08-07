@@ -6,6 +6,8 @@ import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import News from "../News"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import "./style.css"
+
 
 
 const ExpansionPanel = withStyles({
@@ -64,7 +66,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Biography</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.bio}
           </Typography>
         </ExpansionPanelDetails>
@@ -75,7 +77,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Climate</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.climate}
           </Typography>
         </ExpansionPanelDetails>
@@ -86,7 +88,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Economy</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.economy}
           </Typography>
         </ExpansionPanelDetails>
@@ -97,7 +99,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Foreign Policy</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.foreign_policy}
           </Typography>
         </ExpansionPanelDetails>
@@ -108,7 +110,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Healthcare</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.healthcare}
           </Typography>
         </ExpansionPanelDetails>
@@ -119,7 +121,7 @@ export default function CustomizedExpansionPanels(props) {
           <Typography>Immigration</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
+          <Typography className="summary">
             {props.summary.immigration}
           </Typography>
         </ExpansionPanelDetails>

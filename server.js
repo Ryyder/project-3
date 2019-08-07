@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-var MONGODB_URI = "mongodb://user:admin1!@ds359847.mlab.com:59847/heroku_tj31s4wl"
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:admin1!@ds359847.mlab.com:59847/heroku_tj31s4wl"
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.use(cors());

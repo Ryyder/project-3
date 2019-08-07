@@ -10,11 +10,13 @@ import Carousel from "../Carousel"
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import "./style.css"
+import { grey } from "@material-ui/core/colors";
 
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(7),
+    fontSize: "2.8rem",
   },
   input: {
     display: 'none',
@@ -27,6 +29,17 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  partyChoices: {
+    textAlign: 'center',
+  },
+  blankSpace:{
+    height: "10vh",
+  },
+  electionInfoDiv:{
+    textAlign: "center",
+    color: "grey",
+  }
+
 }));
 
 export default function Home() {
@@ -40,35 +53,43 @@ export default function Home() {
         content={
           <div className={classes.root}>
             <Grid container spacing={3}>
-              <Grid item xs={12} lg={6}>
+              {/* <Grid item xs={12} lg={6}>
                 <Paper className={classes.paper}>
-                  <Carousel className="center" />
+                <Carousel className="center" />
                 </Paper>
-              </Grid>
-              <Grid item xs={12} lg={6}>
-                <Grid item spacing={3}>
-                  <Paper className={classes.paper}>
-                    <Title title="Primaries" />
+              </Grid> */}
+              <Grid item xs={12} lg={12}>
+                <Grid item spacing={5}>
+                  <Title title="Presidential Primaries" />
+                  {/* <Paper className={classes.paper}> */}
+                  <div className={classes.blankSpace}></div>
+                  <div className={classes.partyChoices}>
                     <Link to={`/democrats`}>
                       <Button variant="contained" color="primary" className={classes.button}>
                         Democrat
-                </Button>
+                      </Button>
                     </Link>
 
                     <Link to={`/republican`}>
                       <Button variant="contained" color="secondary" className={classes.button}>
                         Republican
-              </Button>
+                      </Button>
                     </Link>
-                  </Paper>
+                    </div>
+                  {/* </Paper> */}
                 </Grid>
                 <Grid item spacing={3}>
-                  <Paper className={classes.paper}>
-                    <Title title="My Election Info" />
-                    <button>
-                      <Modal modalBtn="Click here" />
-                    </button>
-                  </Paper>
+                  {/* <Paper className={classes.paper}> */}
+                    {/* <Title title="My Election Info" /> */}
+                    <div className={classes.electionInfoDiv}>
+                    <h2>State Election Info</h2>
+                    {/* <button> */}
+                    <Button variant="contained" href="#" >
+                      <Modal modalBtn="Primary Dates" />
+                    </Button>
+                    {/* </button> */}
+                    </div>
+                  {/* </Paper> */}
                 </Grid>
               </Grid>
             </Grid>

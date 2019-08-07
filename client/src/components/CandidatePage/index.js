@@ -14,6 +14,8 @@ import Favorite from "@material-ui/icons/Favorite";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+import './style.css';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -148,10 +150,16 @@ class CandidatePage extends React.Component {
             <div>
               <BackButton party={this.state.party} />
               <div className="container">
+                <div className="row">
+                <div className="col s12">
                 <Title
                   title={this.state.name}
                 />
+                </div>
+                </div>
 
+                <div className="row">
+                <div className="col s12">
                 <div className={classes.root}>
                   <Grid container spacing={3}>
                     <Grid item xs={12} >
@@ -180,6 +188,8 @@ class CandidatePage extends React.Component {
                       </Paper>
                     </Grid>
                   </Grid>
+                </div>
+                </div>
                 </div>
               </div>
             </div>

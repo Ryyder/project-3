@@ -21,14 +21,14 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:admin1!@ds359847.mlab.com:59847/heroku_tj31s4wl"
-// mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/authentication' || "mongodb://user:admin1!@ds359847.mlab.com:59847/heroku_tj31s4wl"
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
-mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost/authentication', {useNewUrlParser: true});
 
 app.use(cors());
 // Use APIs

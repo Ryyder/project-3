@@ -29,7 +29,7 @@ export default function ControlledOpenSelect() {
   useEffect(() => {
     
     if (location) {
-      axios.get("http://localhost:3000/api/myinfo/" + location).then(res => {
+      axios.get("/api/myinfo/" + location).then(res => {
         setData([...res.data]);
       });
     }

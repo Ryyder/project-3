@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("./models");
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/authentication", {useNewUrlParser: true}
-);
+mongoose.connect("mongodb://user:admin1!@ds359847.mlab.com:59847/heroku_tj31s4wl").then(data=>console.log(data)).catch(err=>console.log(err))
+
 
 //each states election info
 const myinfoSeed = [
